@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/lineaSuperior"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/visualizacion_imageView"
+            android:layout_width="299dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="185dp"
+            android:layout_marginBottom="56dp"
+            android:src="@mipmap/read"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/titulo_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/koulen"
+            android:text="@string/titulo_texto"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_text_titulo"
+            app:layout_constraintBottom_toTopOf="@id/visualizacion_imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/tipo_grafico_spinner"
+            style="@style/SpinnerVisualización"
+            android:layout_width="@dimen/width_spinner"
+            android:layout_height="@dimen/height_spinner"
+            android:background="@drawable/dropdownn"
+            android:spinnerMode="dropdown"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tipo_grafico_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tipo_grafico_text" />
+
+        <TextView
+            android:id="@+id/visualizacion_text"
+            android:layout_width="@dimen/width_texto_visualizacion"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/koulen"
+            android:text="@string/visualizacion_text"
+            android:textColor="@color/lavanda_claro"
+            android:textSize="@dimen/size_texto_visualizacion"
+            app:layout_constraintBottom_toTopOf="@+id/guideline2"
+            app:layout_constraintEnd_toStartOf="@+id/visualizacion_spinner"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/tipo_grafico_text" />
+
+        <TextView
+            android:id="@+id/tipo_grafico_text"
+            android:layout_width="@dimen/width_texto_visualizacion"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/koulen"
+            android:text="@string/tipo_grafico_text"
+            android:textColor="@color/lavanda_claro"
+            android:textSize="@dimen/size_texto_visualizacion"
+            app:layout_constraintBottom_toTopOf="@id/visualizacion_text"
+            app:layout_constraintEnd_toStartOf="@+id/tipo_grafico_spinner"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+        <Spinner
+            android:id="@+id/visualizacion_spinner"
+            style="@style/SpinnerVisualización"
+            android:layout_width="@dimen/width_spinner"
+            android:layout_height="@dimen/height_spinner"
+            android:background="@drawable/dropdownn"
+            app:layout_constraintBaseline_toBaselineOf="@+id/visualizacion_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/visualizacion_text" />
+
+        <Button
+            android:id="@+id/graficar_button"
+            style="@style/Widget.AppTheme.Botton1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_end_btn_visualizacion"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="@dimen/margin_start_end_btn_visualizacion"
+            android:text="@string/graficar_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+        <TextView
+            android:id="@+id/predecir_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/precedir_caidas_text"
+            android:textAlignment="textStart"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/graficar_button"
+            app:layout_constraintVertical_bias="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="157dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/guideline2"
+            app:layout_constraintGuide_percent=".6"
+            app:layout_constraintTop_toBottomOf="@+id/visualizacion_imageView" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="157dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintGuide_percent=".8"
+            app:layout_constraintTop_toBottomOf="@+id/guideline" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

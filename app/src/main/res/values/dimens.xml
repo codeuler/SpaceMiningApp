@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_boton_empezar">20sp</dimen>
+    <dimen name="size_text_botton_empezar">35sp</dimen>
+    <dimen name="corner_boton_empezar">25dp</dimen>
+    <dimen name="padding_top_bottom_btn_empezar">5sp</dimen>
+    <dimen name="padding_ri_left_bton_empezar">30sp</dimen>
+    <dimen name="size_text_btn_menu">35sp</dimen>
+    <dimen name="width_btn_menu">280dp</dimen>
+    <dimen name="height_btn_menu">205dp</dimen>
+    <dimen name="height_stuff_text">45</dimen>
+    <dimen name="padding_linearLayour_text_stuff">5dp</dimen>
+    <dimen name="margin_short">5dp</dimen>
+    <dimen name="size_text_20">20sp</dimen>
+    <dimen name="size_text_titulo">40sp</dimen>
+    <dimen name="width_texto_visualizacion">150dp</dimen>
+    <dimen name="size_texto_visualizacion">25sp</dimen>
+    <dimen name="height_spinner">50dp</dimen>
+    <dimen name="margin_table">5dp</dimen>
+    <dimen name="padding_2dp">2dp</dimen>
+    <dimen name="height_linearhLayout_bibilioteca">100dp</dimen>
+    <dimen name="height_entryText_biblioteca">50dp</dimen>
+    <dimen name="width_entryText_biblioteca">250dp</dimen>
+    <dimen name="marginStart_entryText_biblioteca">35dp</dimen>
+    <dimen name="size_text_entryText_bibioteca">16sp</dimen>
+    <dimen name="padding_entryText_start">10sp</dimen>
+    <dimen name="corner_entrytext_biblioteca">16dp</dimen>
+    <dimen name="size_text_toolbar">35sp</dimen>
+    <dimen name="corner_tarjeta_bibilioteca">35dp</dimen>
+    <dimen name="margin_start_end_btn_visualizacion">40dp</dimen>
+    <dimen name="margin_start_end_spinner">30dp</dimen>
+    <dimen name="width_spinner">150dp</dimen>
+    <dimen name="marginStart_spinner">20dp</dimen>
+    <dimen name="corner_tablaPrediccion">20dp</dimen>
+    <dimen name="paddingTop_btn_menu">100dp</dimen>
+</resources>

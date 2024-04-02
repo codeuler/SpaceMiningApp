@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/lineaSuperior"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/scrollView2"
+            />
+
+        <View
+            android:id="@+id/lineainferior"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="412dp"
+            android:layout_height="0dp"
+            android:paddingStart="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TableLayout
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="40dp"
+                    android:background="@drawable/borde_tarjeta_biblioteca"
+                    android:paddingStart="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="15dp">
+
+                    <TableRow android:layout_width="wrap_content">
+
+                        <TextView
+                            android:layout_gravity="center_horizontal"
+                            android:fontFamily="@font/oswald"
+                            android:padding="3dip"
+                            android:text="Apogeo"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+                    </TableRow>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_margin="5dp"
+                        android:background="@color/black" />
+
+                    <TableRow android:layout_width="wrap_content">
+
+                        <TextView
+                            android:layout_width="330dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/oswald"
+                            android:padding="3dp"
+                            android:text="Punto de la órbita en el que un satélite terrestre está más alejado de la Tierra. Las unidades son kilómetros"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+                    </TableRow>
+
+                </TableLayout>
+
+                <TableLayout
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="40dp"
+                    android:background="@drawable/borde_tarjeta_biblioteca"
+                    android:paddingStart="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="15dp">
+
+                    <TableRow android:layout_width="wrap_content">
+
+                        <TextView
+                            android:layout_gravity="center_horizontal"
+                            android:fontFamily="@font/oswald"
+                            android:padding="3dip"
+                            android:text="Apogeo"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+                    </TableRow>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_margin="5dp"
+                        android:background="@color/black" />
+
+                    <TableRow android:layout_width="wrap_content">
+
+                        <TextView
+                            android:layout_width="330dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/oswald"
+                            android:padding="3dp"
+                            android:text="Punto de la órbita en el que un satélite terrestre está más alejado de la Tierra. Las unidades son kilómetros"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+                    </TableRow>
+
+                </TableLayout>
+
+                <TableLayout
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="40dp"
+                    android:background="@drawable/borde_tarjeta_biblioteca"
+                    android:paddingStart="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="15dp">
+
+                    <TableRow android:layout_width="wrap_content">
+
+                        <TextView
+                            android:layout_gravity="center_horizontal"
+                            android:fontFamily="@font/oswald"
+                            android:padding="3dip"
+                            android:text="Apogeo"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+                    </TableRow>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_margin="5dp"
+                        android:background="@color/black" />
+
+                    <TableRow android:layout_width="wrap_content">
+
+                        <TextView
+                            android:layout_width="330dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/oswald"
+                            android:padding="3dp"
+                            android:text="Punto de la órbita en el que un satélite terrestre está más alejado de la Tierra. Las unidades son kilómetros"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+                    </TableRow>
+
+                </TableLayout>
+
+                <TableLayout
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="40dp"
+                    android:background="@drawable/borde_tarjeta_biblioteca"
+                    android:paddingStart="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="15dp">
+
+                    <TableRow android:layout_width="wrap_content">
+
+                        <TextView
+                            android:layout_gravity="center_horizontal"
+                            android:fontFamily="@font/oswald"
+                            android:padding="3dip"
+                            android:text="Apogeo"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+                    </TableRow>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_margin="5dp"
+                        android:background="@color/black" />
+
+                    <TableRow android:layout_width="wrap_content">
+
+                        <TextView
+                            android:layout_width="330dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/oswald"
+                            android:padding="3dp"
+                            android:text="Punto de la órbita en el que un satélite terrestre está más alejado de la Tierra. Las unidades son kilómetros"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+                    </TableRow>
+
+                </TableLayout>
+
+                <TableLayout
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="40dp"
+                    android:background="@drawable/borde_tarjeta_biblioteca"
+                    android:paddingStart="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="15dp">
+
+                    <TableRow android:layout_width="wrap_content">
+
+                        <TextView
+                            android:layout_gravity="center_horizontal"
+                            android:fontFamily="@font/oswald"
+                            android:padding="3dip"
+                            android:text="Apogeo"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+                    </TableRow>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_margin="5dp"
+                        android:background="@color/black" />
+
+                    <TableRow android:layout_width="wrap_content">
+
+                        <TextView
+                            android:layout_width="330dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/oswald"
+                            android:padding="3dp"
+                            android:text="Punto de la órbita en el que un satélite terrestre está más alejado de la Tierra. Las unidades son kilómetros"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+                    </TableRow>
+
+                </TableLayout>
+
+                <TableLayout
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="40dp"
+                    android:background="@drawable/borde_tarjeta_biblioteca"
+                    android:paddingStart="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="15dp">
+
+                    <TableRow android:layout_width="wrap_content">
+
+                        <TextView
+                            android:layout_gravity="center_horizontal"
+                            android:fontFamily="@font/oswald"
+                            android:padding="3dip"
+                            android:text="Apogeo"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+                    </TableRow>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_margin="5dp"
+                        android:background="@color/black" />
+
+                    <TableRow android:layout_width="wrap_content">
+
+                        <TextView
+                            android:layout_width="330dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/oswald"
+                            android:padding="3dp"
+                            android:text="Punto de la órbita en el que un satélite terrestre está más alejado de la Tierra. Las unidades son kilómetros"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+                    </TableRow>
+
+                </TableLayout>
+
+                <TableLayout
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="40dp"
+                    android:background="@drawable/borde_tarjeta_biblioteca"
+                    android:paddingStart="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="15dp">
+
+                    <TableRow android:layout_width="wrap_content">
+
+                        <TextView
+                            android:layout_gravity="center_horizontal"
+                            android:fontFamily="@font/oswald"
+                            android:padding="3dip"
+                            android:text="Apogeo"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+                    </TableRow>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_margin="5dp"
+                        android:background="@color/black" />
+
+                    <TableRow android:layout_width="wrap_content">
+
+                        <TextView
+                            android:layout_width="330dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/oswald"
+                            android:padding="3dp"
+                            android:text="Punto de la órbita en el que un satélite terrestre está más alejado de la Tierra. Las unidades son kilómetros"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+                    </TableRow>
+
+                </TableLayout>
+
+                <TableLayout
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="40dp"
+                    android:background="@drawable/borde_tarjeta_biblioteca"
+                    android:paddingStart="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="15dp">
+
+                    <TableRow android:layout_width="wrap_content">
+
+                        <TextView
+                            android:layout_gravity="center_horizontal"
+                            android:fontFamily="@font/oswald"
+                            android:padding="3dip"
+                            android:text="Apogeo"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+                    </TableRow>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_margin="5dp"
+                        android:background="@color/black" />
+
+                    <TableRow android:layout_width="wrap_content">
+
+                        <TextView
+                            android:layout_width="330dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/oswald"
+                            android:padding="3dp"
+                            android:text="Punto de la órbita en el que un satélite terrestre está más alejado de la Tierra. Las unidades son kilómetros"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+                    </TableRow>
+
+                </TableLayout>
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_linearhLayout_bibilioteca"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <EditText
+                android:id="@+id/editTextText"
+                android:layout_width="@dimen/width_entryText_biblioteca"
+                android:layout_height="@dimen/height_entryText_biblioteca"
+                android:layout_marginStart="@dimen/marginStart_entryText_biblioteca"
+                android:background="@drawable/borde_entrytext_biblioteca"
+                android:ems="10"
+                android:fontFamily="@font/inter_extralight"
+                android:hint="@string/entry_text_bibioteca"
+                android:inputType="text"
+                android:maxLength="20"
+                android:paddingStart="@dimen/padding_entryText_start"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="@dimen/size_text_entryText_bibioteca"
+                android:textStyle="italic" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="@dimen/height_entryText_biblioteca"
+                android:layout_height="@dimen/height_entryText_biblioteca"
+                android:layout_marginStart="@dimen/marginStart_entryText_biblioteca"
+                android:src="@drawable/searchr" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

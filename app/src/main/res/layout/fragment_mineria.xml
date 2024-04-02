@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/lineaSuperior"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TableLayout
+            android:id="@+id/table_prediccion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/lineaInferior"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lineaSuperior"
+            app:layout_constraintVertical_bias="0.5">
+
+            <TableRow
+                android:id="@+id/row_encabezado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/borde_tablencabezado_mineria">
+
+                <TextView
+                    android:id="@+id/column_object_id"
+                    style="@style/EstiloTextViewEncabezadoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/object_id" />
+
+                <TextView
+                    android:id="@+id/column_fecha"
+                    style="@style/EstiloTextViewEncabezadoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/fechal_lanzamiento_text" />
+
+                <TextView
+                    android:id="@+id/cantidad_prediccion"
+                    style="@style/EstiloTextViewEncabezadoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/prediccion_text" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/row_content_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/object_id_1"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/id_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/fechas_1"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/fecha_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/column_prediccion_1"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/prediccion_text_value"
+                    android:textAlignment="viewStart" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/row_content_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/object_ids_2"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/id_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/fechas_2"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/fecha_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/column_prediccion_2"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/prediccion_text_value"
+                    android:textAlignment="viewStart" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/row_content_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/object_ids_3"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/id_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/fechas_3"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/fecha_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/column_prediccion_3"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/prediccion_text_value"
+                    android:textAlignment="viewStart" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/row_content_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/object_ids_4"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/id_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/fechas_4"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/fecha_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/column_prediccion_4"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/prediccion_text_value"
+                    android:textAlignment="viewStart" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/row_content_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/object_ids_5"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/id_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/fechas_5"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/fecha_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/column_prediccion_5"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/prediccion_text_value"
+                    android:textAlignment="viewStart" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/row_content_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/object_ids_6"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/id_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/fechas_6"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/fecha_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/column_prediccion_6"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/prediccion_text_value"
+                    android:textAlignment="viewStart" />
+            </TableRow>
+
+
+            <TableRow
+                android:id="@+id/row_content_7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/object_ids_7"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/id_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/fechas_7"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/fecha_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/column_prediccion_7"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/prediccion_text_value"
+                    android:textAlignment="viewStart" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/row_content_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/object_ids_8"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/id_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/fechas_8"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/fecha_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/column_prediccion_8"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/prediccion_text_value"
+                    android:textAlignment="viewStart" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/row_content_9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/object_ids_9"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/id_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/fechas_9"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/fecha_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/column_prediccion_9"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/prediccion_text_value"
+                    android:textAlignment="viewStart" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/row_content_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/object_ids_10"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/id_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/fechas_10"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/fecha_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/column_prediccion_10"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/prediccion_text_value"
+                    android:textAlignment="viewStart" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/row_content_11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/object_ids_11"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/id_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/fechas_11"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/fecha_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/column_prediccion_11"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/prediccion_text_value"
+                    android:textAlignment="viewStart" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/row_content_12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/object_ids_12"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/id_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/fechas_12"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/fecha_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/column_prediccion_12"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/prediccion_text_value"
+                    android:textAlignment="viewStart" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/row_content_13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/object_ids_13"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/id_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/fechas_13"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/fecha_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/column_prediccion_13"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/prediccion_text_value"
+                    android:textAlignment="viewStart" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/row_content_14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/object_ids_14"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/id_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/fechas_14"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/fecha_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/column_prediccion_14"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/prediccion_text_value"
+                    android:textAlignment="viewStart" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/row_content_15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/object_ids_15"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/id_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/fechas_15"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/fecha_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/column_prediccion_15"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/lavanda_claro"
+                    android:text="@string/prediccion_text_value"
+                    android:textAlignment="viewStart" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/row_content_16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/borde_tablecontenido_mineria">
+
+                <TextView
+                    android:id="@+id/object_ids_16"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/transparente"
+                    android:padding="@dimen/padding_2dp"
+                    android:text="@string/id_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/fechas_16"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/padding_2dp"
+                    android:text="@string/fecha_text"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/column_prediccion_16"
+                    style="@style/EstiloTextViewContenidoTabla"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/transparente"
+                    android:padding="@dimen/padding_2dp"
+                    android:text="@string/prediccion_text_value"
+                    android:textAlignment="viewStart" />
+            </TableRow>
+
+        </TableLayout>
+
+        <View
+            android:id="@+id/lineaInferior"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_short"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/left" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/right" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

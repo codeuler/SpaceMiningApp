@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Space Mining</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="explorar_text">Explorar</string>
+    <string name="stuff_in_space_text">Stuff In Space</string>
+    <string name="rastreo_espacial_text">Rastreo Espacial</string>
+    <string name="lexicon_txt">Lexicón Cósmico</string>
+    <string name="fuente_txt">Fuente:</string>
+    <string name="suffin_sapace_text"><u>stuffin.space</u></string>
+    <string name="titulo_texto">Titulo</string>
+    <string name="tipo_grafico_text">Tipo de grafico</string>
+    <string name="visualizacion_text">Visualización</string>
+    <string name="precedir_caidas_text"><u>¿Deseas predecir caídas?</u></string>
+    <string name="graficar_text">¡A graficar!</string>
+    <string name="fechal_lanzamiento_text">Fecha de lanzamiento</string>
+    <string name="prediccion_text">Predicción</string>
+    <string name="object_id">Object_id</string>
+    <string name="id_text">id_object</string>
+    <string name="fecha_text">fecha</string>
+    <string name="prediccion_text_value"># de días</string>
+    <string name="entry_text_bibioteca">¿Qué deseas buscar?</string>
+    <string name="titulo_bar">SPACE MINING</string>
+    <string-array name="tipos_graficos">
+        <item>Opción 1</item>
+        <item>Opción 2</item>
+        <item>Opción 3</item>
+        <item>Opción 4</item>
+        <item>Opción 5</item>
+    </string-array>
+    <string-array name="visualización">
+        <item>Opción 1</item>
+        <item>Opción 2</item>
+        <item>Opción 3</item>
+        <item>Opción 4</item>
+        <item>Opción 5</item>
+    </string-array>
+</resources>

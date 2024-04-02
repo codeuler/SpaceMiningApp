@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparente">
+
+        <View
+            android:id="@+id/lineaSuperior"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/lexicon_btn"
+            style="@style/Widget.AppTheme.Botton2"
+            android:background="@mipmap/read"
+            android:text="@string/lexicon_txt"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rastreo_espacial_btn" />
+
+        <Button
+            android:id="@+id/stt_in_space_btn"
+            style="@style/Widget.AppTheme.Botton2"
+            android:background="@mipmap/earth"
+            android:text="@string/stuff_in_space_text"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toTopOf="@+id/rastreo_espacial_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lineaSuperior" />
+
+        <Button
+            android:id="@+id/rastreo_espacial_btn"
+            style="@style/Widget.AppTheme.Botton2"
+            android:background="@mipmap/estrellas"
+            android:text="@string/rastreo_espacial_text"
+            app:layout_constraintBottom_toTopOf="@+id/lexicon_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stt_in_space_btn"
+
+            app:layout_constraintVertical_bias="0.5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

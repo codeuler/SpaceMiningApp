@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/entryFragment">
+
+    <fragment
+        android:id="@+id/entryFragment"
+        android:name="com.example.spacemining.EntryFragment"
+        android:label="EntryFragment"
+        tools:layout="@layout/fragment_entry">
+
+        <action
+            android:id="@+id/action_entryFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.spacemining.MenuFragment"
+        android:label="MenuFragment"
+        tools:layout="@layout/fragment_menu">
+        <action
+            android:id="@+id/action_menuFragment_to_stufInSpaceFragment"
+            app:destination="@id/stufInSpaceFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_visualizacionFragment"
+            app:destination="@id/visualizacionFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_bibliotecaFragment2"
+            app:destination="@id/bibliotecaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stufInSpaceFragment"
+        android:name="com.example.spacemining.StufInSpaceFragment"
+        android:label="fragment_stuf_in_space"
+        tools:layout="@layout/fragment_stuf_in_space" />
+    <fragment
+        android:id="@+id/visualizacionFragment"
+        android:name="com.example.spacemining.VisualizacionFragment"
+        android:label="VisualizacionFragment"
+        tools:layout="@layout/fragment_visualizacion">
+        <action
+            android:id="@+id/action_visualizacionFragment_to_mineriaFragment"
+            app:destination="@id/mineriaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mineriaFragment"
+        android:name="com.example.spacemining.MineriaFragment"
+        android:label="MineriaFragment"
+        tools:layout="@layout/fragment_mineria"
+        />
+    <fragment
+        android:id="@+id/bibliotecaFragment"
+        android:name="com.example.spacemining.BibliotecaFragment"
+        android:label="fragment_biblioteca"
+        tools:layout="@layout/fragment_biblioteca" />
+</navigation>

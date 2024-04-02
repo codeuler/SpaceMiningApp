@@ -1,0 +1,75 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.SpaceMining" parent="Theme.AppCompat.NoActionBar">
+        <!-- Color primario -->
+        <item name="colorPrimary">@color/black</item>
+        <!-- Color observado en la barra de notificaciones -->
+        <item name="colorPrimaryDark">@color/black</item>
+
+    </style>
+
+    <style name="Theme.SpaceMining" parent="Base.Theme.SpaceMining" />
+
+    <style name="Widget.AppTheme.Botton1" parent="android:Widget.Button">
+        <item name="android:background">@drawable/shadow_button_layer_list</item>
+        <item name="android:fontFamily">@font/koulen</item>
+        <item name="android:paddingBottom">@dimen/padding_top_bottom_btn_empezar</item>
+        <item name="android:paddingTop">@dimen/padding_top_bottom_btn_empezar</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/size_text_botton_empezar</item>
+    </style>
+    <style name="Widget.AppTheme.Botton2" parent="android:Widget.Button">
+        <item name="android:fontFamily">@font/koulen</item>
+        <item name="android:layout_width">@dimen/width_btn_menu</item>
+        <item name="android:layout_height">@dimen/height_btn_menu</item>
+        <item name="android:textSize">@dimen/size_text_btn_menu</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:foreground">@drawable/borde_btn_menu</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:paddingTop">@dimen/paddingTop_btn_menu</item>
+
+    </style>
+
+    <style name="EstiloTextViewEncabezadoTabla" parent="Widget.AppCompat.TextView">
+        <item name="color">@color/lavanda</item>
+        <item name="android:textSize">@dimen/size_text_20</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:fontFamily">@font/oswald_semibold</item>
+        <item name="android:background">@color/transparente</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="EstiloTextViewContenidoTabla" parent="Widget.AppCompat.TextView">
+        <item name="color">@color/lavanda_claro</item>
+        <item name="android:paddingStart">7dp</item>
+        <item name="android:textSize">@dimen/size_text_20</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/oswald</item>
+        <item name="android:background">@color/lavanda_claro</item>
+    </style>
+
+    <style name="EstiloTextViewToolBar" parent="android:Widget.TextView">
+        <item name="android:textSize">@dimen/size_text_toolbar</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_gravity">center|center_horizontal</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/koulen</item>
+    </style>
+
+    <style name="SpinnerVisualización" parent="Widget.AppCompat.Spinner.DropDown">
+        <item name="android:layout_width">@dimen/width_spinner</item>
+        <item name="android:layout_height">@dimen/height_spinner</item>
+        <item name="android:background">@drawable/dropdownn</item>
+        <item name="android:spinnerMode">dropdown</item>
+        <item name="android:layout_marginStart">@dimen/marginStart_spinner</item>
+    </style>
+    <style name="TextAppearance.MyApp.DisplayLarge" parent="TextAppearance.AppCompat">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">64sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:strokeColor">@color/black</item>
+    </style>
+
+</resources>
