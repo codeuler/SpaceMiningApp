@@ -33,8 +33,6 @@
             style="@style/Widget.AppTheme.Botton2"
             android:background="@mipmap/earth"
             android:text="@string/stuff_in_space_text"
-            android:textAlignment="center"
-            android:textAllCaps="false"
             app:layout_constraintBottom_toTopOf="@+id/rastreo_espacial_btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.503"
