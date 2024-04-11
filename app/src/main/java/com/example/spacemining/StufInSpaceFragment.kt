@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import com.example.spacemining.databinding.FragmentMenuBinding
 import com.example.spacemining.databinding.FragmentStufInSpaceBinding
 
 class StufInSpaceFragment : Fragment() {

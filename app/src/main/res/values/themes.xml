@@ -49,6 +49,18 @@
         <item name="android:background">@color/lavanda_claro</item>
     </style>
 
+    <style name="TextViewItemConceptos" parent="Widget.AppCompat.TextView">
+        <item name="android:textAlignment">center</item>
+        <item name="android:fontFamily">@font/oswald</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+
+    </style>
+
     <style name="EstiloTextViewToolBar" parent="android:Widget.TextView">
         <item name="android:textSize">@dimen/size_text_toolbar</item>
         <item name="android:textAlignment">center</item>
