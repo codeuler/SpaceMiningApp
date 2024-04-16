@@ -12,7 +12,7 @@
     <dimen name="padding_linearLayour_text_stuff">5dp</dimen>
     <dimen name="margin_short">5dp</dimen>
     <dimen name="size_text_20">20sp</dimen>
-    <dimen name="size_text_titulo">40sp</dimen>
+    <dimen name="size_text_titulo">30sp</dimen>
     <dimen name="width_texto_visualizacion">150dp</dimen>
     <dimen name="size_texto_visualizacion">25sp</dimen>
     <dimen name="height_spinner">50dp</dimen>
@@ -29,6 +29,7 @@
     <dimen name="corner_tarjeta_bibilioteca">35dp</dimen>
     <dimen name="margin_start_end_btn_visualizacion">40dp</dimen>
     <dimen name="margin_start_end_spinner">30dp</dimen>
+    <dimen name="paddingEnd_spinner">30dp</dimen>
     <dimen name="width_spinner">150dp</dimen>
     <dimen name="marginStart_spinner">20dp</dimen>
     <dimen name="corner_tablaPrediccion">20dp</dimen>

@@ -13,7 +13,11 @@
 
         <action
             android:id="@+id/action_entryFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/move_up_in"
+            app:exitAnim="@anim/move_up_out"
+            app:popEnterAnim="@anim/move_down_in"
+            app:popExitAnim="@anim/move_down_out" />
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
@@ -22,13 +26,25 @@
         tools:layout="@layout/fragment_menu">
         <action
             android:id="@+id/action_menuFragment_to_stufInSpaceFragment"
-            app:destination="@id/stufInSpaceFragment" />
+            app:destination="@id/stufInSpaceFragment"
+            app:enterAnim="@anim/move_up_in"
+            app:exitAnim="@anim/move_up_out"
+            app:popEnterAnim="@anim/move_down_in"
+            app:popExitAnim="@anim/move_down_out" />
         <action
             android:id="@+id/action_menuFragment_to_visualizacionFragment"
-            app:destination="@id/visualizacionFragment" />
+            app:destination="@id/visualizacionFragment"
+            app:enterAnim="@anim/move_up_in"
+            app:exitAnim="@anim/move_up_out"
+            app:popEnterAnim="@anim/move_down_in"
+            app:popExitAnim="@anim/move_down_out" />
         <action
             android:id="@+id/action_menuFragment_to_bibliotecaFragment2"
-            app:destination="@id/bibliotecaFragment" />
+            app:destination="@id/bibliotecaFragment"
+            app:enterAnim="@anim/move_up_in"
+            app:exitAnim="@anim/move_up_out"
+            app:popEnterAnim="@anim/move_down_in"
+            app:popExitAnim="@anim/move_down_out" />
     </fragment>
     <fragment
         android:id="@+id/stufInSpaceFragment"
@@ -42,7 +58,11 @@
         tools:layout="@layout/fragment_visualizacion">
         <action
             android:id="@+id/action_visualizacionFragment_to_mineriaFragment"
-            app:destination="@id/mineriaFragment" />
+            app:destination="@id/mineriaFragment"
+            app:enterAnim="@anim/move_up_in"
+            app:exitAnim="@anim/move_up_out"
+            app:popEnterAnim="@anim/move_down_in"
+            app:popExitAnim="@anim/move_down_out" />
     </fragment>
     <fragment
         android:id="@+id/mineriaFragment"

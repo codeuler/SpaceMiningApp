@@ -72,8 +72,11 @@
     <style name="SpinnerVisualización" parent="Widget.AppCompat.Spinner.DropDown">
         <item name="android:layout_width">@dimen/width_spinner</item>
         <item name="android:layout_height">@dimen/height_spinner</item>
-        <item name="android:background">@drawable/dropdownn</item>
-        <item name="android:spinnerMode">dropdown</item>
+        <item name="android:background">@drawable/dropdown</item>
+        <item name="android:paddingEnd">@dimen/paddingEnd_spinner</item>
+        <item name="android:spinnerMode">dialog</item>
+        <item name="android:titleTextColor">@color/lavanda_claro</item>
+        <item name="android:prompt">@string/titulo_spiner</item>
         <item name="android:layout_marginStart">@dimen/marginStart_spinner</item>
     </style>
     <style name="TextAppearance.MyApp.DisplayLarge" parent="TextAppearance.AppCompat">

@@ -21,18 +21,62 @@
     <string name="prediccion_text_value"># de días</string>
     <string name="entry_text_bibioteca">¿Qué deseas buscar?</string>
     <string name="titulo_bar">SPACE MINING</string>
+    <string name="titulo_spiner">Elige una opción</string>
     <string-array name="tipos_graficos">
-        <item>Opción 1</item>
-        <item>Opción 2</item>
-        <item>Opción 3</item>
-        <item>Opción 4</item>
-        <item>Opción 5</item>
+        <item><b>Dispersión (órbita)</b></item>
+        <item><b>Dispersión (no órbita)</b></item>
+        <item><b>Distribución (órbita)</b></item>
+        <item><b>Distribución (no órbita)</b></item>
+        <item><b>Circular (órbita)</b></item>
+        <item><b>Circular (no órbita)</b></item>
+        <item><b>Histograma (no órbita)</b></item>
+        <item><b>Histograma (órbita)</b></item>
     </string-array>
-    <string-array name="visualización">
-        <item>Opción 1</item>
-        <item>Opción 2</item>
-        <item>Opción 3</item>
-        <item>Opción 4</item>
-        <item>Opción 5</item>
+    <string-array name="dispersion_noorbita">
+        <item><b>Apogee - Period</b></item>
+        <item><b>Apogee - Perigee</b></item>
+        <item><b>Apogee - Inclination</b></item>
+        <item><b>Period - Perigee</b></item>
+        <item><b>Period - Inclination</b></item>
+        <item><b>Perigee - Inclination</b></item>
+        <item><b>Days_in_Orbit - Apogee</b></item>
+        <item><b>Days_in_Orbit - Period</b></item>
+        <item><b>Days_in_Orbit - Perigee</b></item>
+        <item><b>Days_in_Orbit - Inclination</b></item>
+    </string-array>
+    <string-array name="dispersion_orbita">
+        <item><b>Apogee - Period</b></item>
+        <item><b>Apogee - Perigee</b></item>
+        <item><b>Apogee - Inclination</b></item>
+        <item><b>Period - Perigee</b></item>
+        <item><b>Period - Inclination</b></item>
+        <item><b>Perigee - Inclination</b></item>
+    </string-array>
+    <string-array name="distribucion_noorbita">
+        <item><b>RCS_SIZE - Apogee</b></item>
+        <item><b>RCS_SIZE - Period</b></item>
+        <item><b>RCS_SIZE - Perigee</b></item>
+        <item><b>RCS_SIZE - Inclination</b></item>
+        <item><b>RCS_SIZE - Days_in_Orbit</b></item>
+    </string-array>
+    <string-array name="distribucion_orbita">
+        <item><b>RCS_SIZE - Apogee</b></item>
+        <item><b>RCS_SIZE - Period</b></item>
+        <item><b>RCS_SIZE - Perigee</b></item>
+        <item><b>RCS_SIZE - Inclination</b></item>
+    </string-array><string-array name="histograma_noorbita">
+        <item><b>Apogee</b></item>
+        <item><b>Period</b></item>
+        <item><b>Perigee</b></item>
+        <item><b>Inclination</b></item>
+        <item><b>Days_in_Orbit</b></item>
+</string-array><string-array name="histograma_orbita">
+    <item><b>Apogee</b></item>
+    <item><b>Period</b></item>
+    <item><b>Perigee</b></item>
+    <item><b>Inclination</b></item>
+    </string-array>
+    <string-array name="circular">
+        <item><b>RCS_SIZE</b></item>
     </string-array>
 </resources>
