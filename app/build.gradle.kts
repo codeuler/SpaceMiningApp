@@ -46,7 +46,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0")
     //glide
     implementation("com.github.bumptech.glide:glide:4.11.0")
-
+    annotationProcessor("com.github.bumptech.glide:compiler:4.11.0")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
