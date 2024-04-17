@@ -12,7 +12,10 @@
     <dimen name="padding_linearLayour_text_stuff">5dp</dimen>
     <dimen name="margin_short">5dp</dimen>
     <dimen name="size_text_20">20sp</dimen>
+    <dimen name="size_text_encabezadoTabla">17sp</dimen>
+    <dimen name="size_text_contenidoTabla">16sp</dimen>
     <dimen name="size_text_titulo">30sp</dimen>
+    <dimen name="size_text_prediccion">35sp</dimen>
     <dimen name="width_texto_visualizacion">150dp</dimen>
     <dimen name="size_texto_visualizacion">25sp</dimen>
     <dimen name="height_spinner">50dp</dimen>
@@ -23,7 +26,7 @@
     <dimen name="width_entryText_biblioteca">250dp</dimen>
     <dimen name="marginStart_entryText_biblioteca">35dp</dimen>
     <dimen name="size_text_entryText_bibioteca">16sp</dimen>
-    <dimen name="padding_entryText_start">10sp</dimen>
+    <dimen name="padding_entryText_start">10dp</dimen>
     <dimen name="corner_entrytext_biblioteca">16dp</dimen>
     <dimen name="size_text_toolbar">35sp</dimen>
     <dimen name="corner_tarjeta_bibilioteca">35dp</dimen>
@@ -35,4 +38,7 @@
     <dimen name="corner_tablaPrediccion">20dp</dimen>
     <dimen name="paddingTop_btn_menu">100dp</dimen>
     <dimen name="paddingStartEnd_titulovisualizacion">20dp</dimen>
+    <dimen name="paddingStartEnd_text_contenidotabla">10dp</dimen>
+    <dimen name="paddingTopBottom_text_contenidotabla">5dp</dimen>
+    <dimen name="width_entryText_mineria">130dp</dimen>
 </resources>

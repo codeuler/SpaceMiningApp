@@ -13,15 +13,23 @@
     <string name="visualizacion_text">Visualización</string>
     <string name="precedir_caidas_text"><u>¿Deseas predecir caídas?</u></string>
     <string name="graficar_text">¡A graficar!</string>
-    <string name="fechal_lanzamiento_text">Fecha de lanzamiento</string>
-    <string name="prediccion_text">Predicción</string>
+    <string name="apogee_text">Apogee</string>
+    <string name="perigee_text">Perigee</string>
     <string name="object_id">Object_id</string>
     <string name="id_text">id_object</string>
-    <string name="fecha_text">fecha</string>
+    <string name="valor_text">valor</string>
     <string name="prediccion_text_value"># de días</string>
     <string name="entry_text_bibioteca">¿Qué deseas buscar?</string>
     <string name="titulo_bar">SPACE MINING</string>
     <string name="titulo_spiner">Elige una opción</string>
+    <string name="period_text">Period</string>
+    <string name="inclination_text">Inclination</string>
+    <string name="haz_prediccion_text">Haz tu predicción</string>
+    <string name="n_km">n° km</string>
+    <string name="degree_txt">degree</string>
+    <string name="predecir_text">¡Predecir!</string>
+    <string name="period_prediction_text">Period Prediction</string>
+    <string name="valor_prediccion_text">valor</string>
     <string-array name="tipos_graficos">
         <item><b>Dispersión (órbita)</b></item>
         <item><b>Dispersión (no órbita)</b></item>

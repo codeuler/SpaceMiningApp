@@ -15,7 +15,7 @@
             android:layout_width="242dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="68dp"
-            android:background="@drawable/shadow_button_layer_list"
+            android:background="@drawable/borde_boton_empezar"
             android:text="@string/explorar_text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

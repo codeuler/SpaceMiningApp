@@ -11,7 +11,7 @@
     <style name="Theme.SpaceMining" parent="Base.Theme.SpaceMining" />
 
     <style name="Widget.AppTheme.Botton1" parent="android:Widget.Button">
-        <item name="android:background">@drawable/shadow_button_layer_list</item>
+        <item name="android:background">@drawable/borde_boton_empezar</item>
         <item name="android:fontFamily">@font/koulen</item>
         <item name="android:paddingBottom">@dimen/padding_top_bottom_btn_empezar</item>
         <item name="android:paddingTop">@dimen/padding_top_bottom_btn_empezar</item>
@@ -32,8 +32,9 @@
 
     <style name="EstiloTextViewEncabezadoTabla" parent="Widget.AppCompat.TextView">
         <item name="color">@color/lavanda</item>
-        <item name="android:textSize">@dimen/size_text_20</item>
+        <item name="android:textSize">@dimen/size_text_encabezadoTabla</item>
         <item name="android:textAlignment">center</item>
+        <item name="android:layout_margin">@dimen/padding_2dp</item>
         <item name="android:fontFamily">@font/oswald_semibold</item>
         <item name="android:background">@color/transparente</item>
         <item name="android:gravity">center</item>
@@ -41,8 +42,11 @@
 
     <style name="EstiloTextViewContenidoTabla" parent="Widget.AppCompat.TextView">
         <item name="color">@color/lavanda_claro</item>
-        <item name="android:paddingStart">7dp</item>
-        <item name="android:textSize">@dimen/size_text_20</item>
+        <item name="android:paddingStart">@dimen/paddingStartEnd_text_contenidotabla</item>
+        <item name="android:paddingEnd">@dimen/paddingStartEnd_text_contenidotabla</item>
+        <item name="android:paddingTop">@dimen/padding_top_bottom_btn_empezar</item>
+        <item name="android:paddingBottom">@dimen/padding_top_bottom_btn_empezar</item>
+        <item name="android:textSize">@dimen/size_text_contenidoTabla</item>
         <item name="android:textAlignment">viewStart</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:fontFamily">@font/oswald</item>
@@ -59,6 +63,15 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:layout_gravity">center_horizontal</item>
 
+    </style>
+    
+    <style name="TextViewSubsMineria" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">@dimen/width_texto_visualizacion</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">center</item>
+        <item name="fontFamily">@font/koulen</item>
+        <item name="android:textColor">@color/lavanda_claro</item>
+        <item name="android:textSize">@dimen/size_texto_visualizacion</item>
     </style>
 
     <style name="EstiloTextViewToolBar" parent="android:Widget.TextView">
@@ -79,6 +92,21 @@
         <item name="android:prompt">@string/titulo_spiner</item>
         <item name="android:layout_marginStart">@dimen/marginStart_spinner</item>
     </style>
+
+    <style name="EntryTextMineria" parent="Widget.AppCompat.EditText">
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:width">@dimen/width_entryText_mineria</item>
+        <item name="android:height">@dimen/height_entryText_biblioteca</item>
+        <item name="android:background">@drawable/borde_entrytext_biblioteca</item>
+        <item name="android:padding">@dimen/padding_entryText_start</item>
+        <item name="android:fontFamily">@font/inter_extralight</item>
+        <item name="android:maxLength">8</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:textSize">@dimen/size_text_entryText_bibioteca</item>
+    </style>
+
     <style name="TextAppearance.MyApp.DisplayLarge" parent="TextAppearance.AppCompat">
         <item name="android:textStyle">normal</item>
         <item name="android:textAllCaps">false</item>
