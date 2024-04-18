@@ -23,6 +23,9 @@ class StufInSpaceFragment : Fragment() {
         val url = "https://"+binding.linkStuff.text.toString()
 
         binding.webView.settings.javaScriptEnabled = true
+        // Configurar para cargar la página en modo de escritorio
+        binding.webView.settings.userAgentString = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+
         binding.webView.loadUrl(url)
 
         binding.linkStuff.setOnClickListener {

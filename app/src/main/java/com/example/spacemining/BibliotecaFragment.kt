@@ -9,14 +9,13 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.spacemining.databinding.FragmentBibliotecaBinding
-import com.example.spacemining.databinding.FragmentStufInSpaceBinding
 import com.example.spacemining.model.ConceptoUiModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 //para la api
-import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
@@ -34,6 +33,9 @@ class BibliotecaFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_biblioteca, container, false)
+
+        Glide.with(this.requireContext()).load(R.drawable.imageloading).into(
+            binding.imageCargaConceptos)
 
         recyclerView.adapter = conceptoAdapter
         // Inicializa la llamada a la API de manera asíncrona usando Coroutines
@@ -93,11 +95,16 @@ class BibliotecaFragment : Fragment() {
                     conceptoAdapter.setData(conceptosList)
                 } else {
                     Log.i("message", "Error: ${response.code()}")
+                    conceptosList.add(ConceptoUiModel("Conceptos", "No encontramos conceptos disponibles intentalo mas tarde porfavor ;D"))
+                    conceptoAdapter.setData(conceptosList)
                 }
             }
         } catch (e: Exception) {
             Log.e("Error", "Error fetching data: ${e.message}")
+            conceptosList.add(ConceptoUiModel("Fallo de conexion", "Tuvimos problemas para conectarnos con el servidor, asegurate de estar conectado a internet. ;D"))
+            conceptoAdapter.setData(conceptosList)
         }
+        binding.imageCargaConceptos.visibility=View.GONE
     }
 }
 

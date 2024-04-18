@@ -1,26 +1,63 @@
 package com.example.spacemining
 
+import android.graphics.Matrix
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
+import android.view.ScaleGestureDetector
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import androidx.databinding.DataBindingUtil
 import android.widget.ArrayAdapter;
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.example.spacemining.databinding.FragmentVisualizacionBinding
 
 class VisualizacionFragment : Fragment() {
+    private lateinit var imageView: ImageView
+    private lateinit var scaleGestureDetector: ScaleGestureDetector
+    private var scaleFactor = 1.0f
+    private val matrix = Matrix()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         val binding: FragmentVisualizacionBinding = DataBindingUtil.inflate(
             inflater,R.layout.fragment_visualizacion,container,false)
+
+        imageView=binding.visualizacionImageView
+        // Conectar el ScaleGestureDetector con el ImageView
+        scaleGestureDetector = ScaleGestureDetector(this.requireContext(), ScaleListener())
+        // Configurar el onTouchEvent para pasar eventos al detector de gestos de escala
+        var lastTouchX = 0f
+        var lastTouchY = 0f
+        imageView.setOnTouchListener { _, event ->
+            scaleGestureDetector.onTouchEvent(event)
+            if (event.pointerCount == 1) {
+                when (event.action) {
+                    MotionEvent.ACTION_MOVE -> {
+                        val deltaX = event.x - lastTouchX
+                        val deltaY = event.y - lastTouchY
+                        matrix.postTranslate(deltaX, deltaY)
+                        imageView.imageMatrix = matrix
+                    }
+                }
+                lastTouchX = event.x
+                lastTouchY = event.y
+            }
+            true
+        }
+
 
         val spinnerVisualizacion = binding.visualizacionSpinner
         val spinnerTipoGrafico = binding.tipoGraficoSpinner
@@ -29,10 +66,7 @@ class VisualizacionFragment : Fragment() {
         val itemsTipoGrafico = resources.getStringArray(R.array.tipos_graficos)
         val url = "https://space-mining-api.onrender.com/data/images/get?orbita=T&grafico=0&ejes=A"
 
-        Glide.with(this.requireContext()).load(url).timeout(100000).thumbnail(Glide.with(
-            this.requireContext()).load(R.drawable.imageloading)).error(R.mipmap.error
-            ).diskCacheStrategy(DiskCacheStrategy.NONE).skipMemoryCache(true).into(
-            binding.visualizacionImageView)
+        getImage(url,binding)
 
         binding.tituloText.text = "Dispersión (órbita) del Apogee - Period"
 
@@ -214,11 +248,72 @@ class VisualizacionFragment : Fragment() {
             val titulo = "Grafico ${binding.tipoGraficoSpinner.selectedItem} de ${binding.visualizacionSpinner.selectedItem}"
             binding.tituloText.text = titulo
             val direccion = "https://space-mining-api.onrender.com/data/images/get?orbita=${consulta[0]}&grafico=${consulta[1]}&ejes=${consulta[2]}"
-            Glide.with(this.requireContext()).load(direccion).timeout(100000).thumbnail(
-                Glide.with(this.requireContext()).load(R.drawable.imageloading)).error(
-                R.mipmap.error).diskCacheStrategy(DiskCacheStrategy.NONE).skipMemoryCache(true
-                ).into(binding.visualizacionImageView)
+            getImage(direccion,binding)
         }
+
         return binding.root
+    }
+
+    inner class ScaleListener : ScaleGestureDetector.SimpleOnScaleGestureListener() {
+        override fun onScale(detector: ScaleGestureDetector): Boolean {
+            scaleFactor *= detector.scaleFactor
+            scaleFactor = scaleFactor.coerceIn(0.1f, 10.0f) // Limitar el zoom mínimo y máximo
+
+            matrix.setScale(scaleFactor, scaleFactor)
+            imageView.imageMatrix = matrix
+
+            return true
+        }
+    }
+
+    fun getImage(url: String, binding: FragmentVisualizacionBinding) {
+
+        imageView.scaleType = ImageView.ScaleType.FIT_CENTER
+
+        Glide.with(this.requireContext()).load(url).timeout(70000).thumbnail(Glide.with(
+            this.requireContext()).load(R.drawable.imageloading)).error(R.mipmap.error
+        ).diskCacheStrategy(DiskCacheStrategy.NONE).skipMemoryCache(true).listener(object :
+            RequestListener<Drawable> {
+
+            override fun onResourceReady(
+                resource: Drawable?,
+                model: Any?,
+                target: Target<Drawable>?,
+                dataSource: DataSource?,
+                isFirstResource: Boolean
+            ): Boolean {
+                imageView.scaleType = ImageView.ScaleType.MATRIX
+
+                // Obtener las dimensiones de la imagen
+                val imageWidth = resource?.intrinsicWidth ?: 0
+                val imageHeight = resource?.intrinsicHeight ?: 0
+                // Obtener las dimensiones del ImageView
+                val imageViewWidth = imageView.width
+                val imageViewHeight = imageView.height
+                // Calcular la escala para que la imagen se ajuste al ImageView
+                val scaleX = imageViewWidth.toFloat() / imageWidth.toFloat()
+                val scaleY = imageViewHeight.toFloat() / imageHeight.toFloat()
+                val scale = scaleX.coerceAtMost(scaleY) // Usar el menor de los dos para asegurar que la imagen se ajuste completamente
+                // Aplicar la escala a la matriz
+                matrix.setScale(scale, scale)
+                imageView.imageMatrix = matrix
+                // Calcular el desplazamiento para centrar la imagen si es necesario
+                val translateX = (imageViewWidth - imageWidth * scale) / 2f
+                val translateY = (imageViewHeight - imageHeight * scale) / 2f
+                // Aplicar el desplazamiento a la matriz para centrar la imagen
+                matrix.postTranslate(translateX, translateY)
+                imageView.imageMatrix = matrix
+                return false
+            }
+            override fun onLoadFailed(
+                e: GlideException?,
+                model: Any?,
+                target: Target<Drawable>?,
+                isFirstResource: Boolean
+            ): Boolean {
+                TODO("Not yet implemented")
+            }
+        }).into(
+            binding.visualizacionImageView)
     }
 }
