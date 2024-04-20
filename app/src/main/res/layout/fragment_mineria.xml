@@ -19,7 +19,9 @@
             android:id="@+id/table_prediccion"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -83,7 +85,7 @@
                     android:id="@+id/object_id_1"
                     style="@style/EstiloTextViewContenidoTabla"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/id_text"
                     android:textAlignment="viewStart" />
@@ -92,7 +94,7 @@
                     android:id="@+id/apogee_1"
                     style="@style/EstiloTextViewContenidoTabla"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/valor_text"
                     android:textAlignment="viewStart" />
@@ -101,7 +103,7 @@
                     android:id="@+id/perigee_1"
                     style="@style/EstiloTextViewContenidoTabla"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/valor_text"
                     android:textAlignment="viewStart" />
@@ -110,7 +112,7 @@
                     android:id="@+id/period_1"
                     style="@style/EstiloTextViewContenidoTabla"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/valor_text"
                     android:textAlignment="viewStart" />
@@ -119,7 +121,7 @@
                     android:id="@+id/prediction_1"
                     style="@style/EstiloTextViewContenidoTabla"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/valor_text"
                     android:textAlignment="viewStart" />
@@ -136,7 +138,7 @@
                     android:id="@+id/object_id_2"
                     style="@style/EstiloTextViewContenidoTabla"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/id_text"
                     android:textAlignment="viewStart" />
@@ -145,7 +147,7 @@
                     android:id="@+id/apogee_2"
                     style="@style/EstiloTextViewContenidoTabla"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/valor_text"
                     android:textAlignment="viewStart" />
@@ -154,7 +156,7 @@
                     android:id="@+id/perigee_2"
                     style="@style/EstiloTextViewContenidoTabla"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/valor_text"
                     android:textAlignment="viewStart" />
@@ -163,7 +165,7 @@
                     android:id="@+id/period_2"
                     style="@style/EstiloTextViewContenidoTabla"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/valor_text"
                     android:textAlignment="viewStart" />
@@ -172,7 +174,7 @@
                     android:id="@+id/prediction_2"
                     style="@style/EstiloTextViewContenidoTabla"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/valor_text"
                     android:textAlignment="viewStart" />
@@ -188,7 +190,7 @@
                     android:id="@+id/object_id_3"
                     style="@style/EstiloTextViewContenidoTabla"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/id_text"
                     android:textAlignment="viewStart" />
@@ -197,7 +199,7 @@
                     android:id="@+id/apogee_3"
                     style="@style/EstiloTextViewContenidoTabla"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/valor_text"
                     android:textAlignment="viewStart" />
@@ -396,15 +398,17 @@
             android:id="@+id/predecir_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
             android:fontFamily="@font/oswald"
             android:gravity="center_vertical"
             android:text="@string/haz_prediccion_text"
             android:textColor="@color/white"
-            android:textSize="@dimen/size_text_prediccion"
+            android:textSize="27sp"
+            app:layout_constraintBottom_toTopOf="@+id/textApogee"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/table_prediccion" />
+            app:layout_constraintTop_toBottomOf="@+id/table_prediccion"
+            app:layout_constraintVertical_bias="0.351" />
 
         <TextView
             android:id="@+id/textApogee"
@@ -429,7 +433,7 @@
             style="@style/EntryTextMineria"
             android:layout_width="@dimen/width_entryText_mineria"
             android:layout_height="@dimen/height_entryText_biblioteca"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             android:hint="@string/n_km"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -486,7 +490,7 @@
 
         <TableLayout
             android:layout_width="190dp"
-            android:layout_height="79dp"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@+id/button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
