@@ -20,11 +20,11 @@
             android:id="@+id/visualizacion_imageView"
             android:layout_width="299dp"
             android:layout_height="250dp"
+            android:layout_marginTop="16dp"
             android:scaleType="fitCenter"
             android:src="@drawable/imageloading"
-            app:layout_constraintBottom_toTopOf="@+id/tipo_grafico_spinner"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/titulo_text" />
 
@@ -41,7 +41,6 @@
             android:textSize="@dimen/size_text_titulo"
             app:layout_constraintBottom_toTopOf="@+id/visualizacion_imageView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lineaSuperior" />
 

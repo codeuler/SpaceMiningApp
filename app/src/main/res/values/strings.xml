@@ -16,7 +16,7 @@
     <string name="apogee_text">Apogee</string>
     <string name="perigee_text">Perigee</string>
     <string name="object_id">Object_id</string>
-    <string name="id_text">id_object</string>
+    <string name="id_text">id</string>
     <string name="valor_text">valor</string>
     <string name="prediccion_text_value"># de días</string>
     <string name="entry_text_bibioteca">¿Qué deseas buscar?</string>

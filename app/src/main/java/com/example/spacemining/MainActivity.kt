@@ -10,7 +10,6 @@ import com.example.spacemining.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
-    lateinit var bindingActivity: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val bindingActivity: ActivityMainBinding =

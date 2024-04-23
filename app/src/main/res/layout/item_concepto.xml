@@ -9,7 +9,8 @@
     android:paddingBottom="5dp"
     android:layout_gravity="center_horizontal">
 
-    <TableRow android:layout_width="match_parent">
+    <TableRow android:layout_width="match_parent"
+        android:gravity="center_horizontal">
 
         <TextView
             android:id="@+id/dt"
@@ -24,7 +25,10 @@
         android:layout_margin="5dp"
         android:background="@color/black" />
 
-    <TableRow android:layout_width="match_parent">
+    <TableRow android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        >
+
 
         <TextView
             android:id="@+id/dd"
