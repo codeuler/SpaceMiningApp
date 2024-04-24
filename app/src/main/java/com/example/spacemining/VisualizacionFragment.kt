@@ -15,7 +15,6 @@ import android.widget.AdapterView
 import androidx.databinding.DataBindingUtil
 import android.widget.ArrayAdapter;
 import android.widget.ImageView
-import androidx.core.math.MathUtils.clamp
 import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -24,7 +23,6 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.example.spacemining.databinding.FragmentVisualizacionBinding
-import kotlin.math.abs
 
 class VisualizacionFragment : Fragment() {
     private lateinit var imageView: ImageView
@@ -36,11 +34,14 @@ class VisualizacionFragment : Fragment() {
     private val matrix = Matrix()
     private var translateX = 0.0f
     private var translateY = 0.0f
+    private lateinit var binding: FragmentVisualizacionBinding
+    private val consulta = mutableListOf("T","0","A")
+    private var listaVisualizacion = mutableListOf("")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding: FragmentVisualizacionBinding = DataBindingUtil.inflate(
+        binding = DataBindingUtil.inflate(
             inflater,R.layout.fragment_visualizacion,container,false)
 
         imageView=binding.visualizacionImageView
@@ -78,86 +79,17 @@ class VisualizacionFragment : Fragment() {
 
         val spinnerVisualizacion = binding.visualizacionSpinner
         val spinnerTipoGrafico = binding.tipoGraficoSpinner
-        val consulta = mutableListOf("T","0","A")
-        var listaVisualizacion = mutableListOf("")
+
+
         val itemsTipoGrafico = resources.getStringArray(R.array.tipos_graficos)
         val url = "https://space-mining-api.onrender.com/data/images/get?orbita=T&grafico=0&ejes=A"
 
         getImage(url,binding,imageView.width,imageView.height)
 
-        binding.tituloText.text = "Dispersión (órbita) del Apogee - Period"
+        binding.tituloText.text = "Grafico Dispersión (órbita) de Apogee - Period"
 
-        ArrayAdapter.createFromResource(
-            this.requireContext(),
-            R.array.tipos_graficos,
-            R.layout.spinner_visual
-        ).also{
-            adapter -> adapter.setDropDownViewResource(R.layout.spiner_item_visualizacion)
-            spinnerTipoGrafico.adapter = adapter
-        }
-
-        ArrayAdapter.createFromResource(
-            this.requireContext(),
-            R.array.dispersion_orbita,
-            R.layout.spinner_visual
-        ).also{
-            adapter -> adapter.setDropDownViewResource(R.layout.spiner_item_visualizacion)
-            spinnerVisualizacion.adapter = adapter
-        }
-
-        val adapterDispersionOrbita:ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
-            this.requireContext(),
-            R.array.dispersion_orbita,
-            R.layout.spinner_visual
-        ).also{
-                adapter -> adapter.setDropDownViewResource(R.layout.spiner_item_visualizacion)
-        }
-
-        val adapterDispersionNorbita:ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
-            this.requireContext(),
-            R.array.dispersion_noorbita,
-            R.layout.spinner_visual
-        ).also{
-                adapter -> adapter.setDropDownViewResource(R.layout.spiner_item_visualizacion)
-        }
-        val adapterDistribucionOrbita:ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
-            this.requireContext(),
-            R.array.distribucion_orbita,
-            R.layout.spinner_visual
-        ).also{
-                adapter -> adapter.setDropDownViewResource(R.layout.spiner_item_visualizacion)
-        }
-
-        val adapterDistribucionNorbita:ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
-            this.requireContext(),
-            R.array.distribucion_noorbita,
-            R.layout.spinner_visual
-        ).also{
-                adapter -> adapter.setDropDownViewResource(R.layout.spiner_item_visualizacion)
-        }
-
-        val adapterHistogramaNoorbita:ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
-            this.requireContext(),
-            R.array.histograma_noorbita,
-            R.layout.spinner_visual
-        ).also{
-                adapter -> adapter.setDropDownViewResource(R.layout.spiner_item_visualizacion)
-        }
-        val adapterHistogramaorbita:ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
-            this.requireContext(),
-            R.array.histograma_orbita,
-            R.layout.spinner_visual
-        ).also{
-                adapter -> adapter.setDropDownViewResource(R.layout.spiner_item_visualizacion)
-        }
-
-        val adapterCircular:ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
-            this.requireContext(),
-            R.array.circular,
-            R.layout.spinner_visual
-        ).also{
-                adapter -> adapter.setDropDownViewResource(R.layout.spiner_item_visualizacion)
-        }
+        spinnerTipoGrafico.adapter = crearArray(R.array.tipos_graficos)
+        spinnerVisualizacion.adapter = crearArray(R.array.dispersion_orbita)
 
         spinnerTipoGrafico.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -165,52 +97,28 @@ class VisualizacionFragment : Fragment() {
                 consulta[2] = "A"
                 when(itemsTipoGrafico[position]){
                     "Dispersión (no órbita)" -> {
-                        spinnerVisualizacion.adapter = adapterDispersionNorbita
-                        consulta[0]="F"
-                        consulta[1]="0"
-                        listaVisualizacion = resources.getStringArray(R.array.dispersion_noorbita).toMutableList()
+                        setArraySpinner(R.array.dispersion_noorbita,"F","0")
                     }
                     "Dispersión (órbita)" -> {
-                        spinnerVisualizacion.adapter = adapterDispersionOrbita
-                        consulta[0]="T"
-                        consulta[1]="0"
-                        listaVisualizacion = resources.getStringArray(R.array.dispersion_orbita).toMutableList()
+                        setArraySpinner(R.array.dispersion_orbita,"T","0")
                     }
                     "Distribución (órbita)" -> {
-                        spinnerVisualizacion.adapter = adapterDistribucionOrbita
-                        consulta[0]="T"
-                        consulta[1]="1"
-                        listaVisualizacion = resources.getStringArray(R.array.distribucion_orbita).toMutableList()
+                        setArraySpinner(R.array.distribucion_orbita,"T","1")
                     }
                     "Distribución (no órbita)" -> {
-                        spinnerVisualizacion.adapter = adapterDistribucionNorbita
-                        consulta[0]="F"
-                        consulta[1]="1"
-                        listaVisualizacion = resources.getStringArray(R.array.distribucion_noorbita).toMutableList()
+                        setArraySpinner(R.array.distribucion_noorbita,"F","1")
                     }
                     "Circular (órbita)" -> {
-                        spinnerVisualizacion.adapter = adapterCircular
-                        consulta[0]="T"
-                        consulta[1]="2"
-                        listaVisualizacion = resources.getStringArray(R.array.circular).toMutableList()
+                        setArraySpinner(R.array.circular,"T","2")
                     }
                     "Circular (no órbita)" -> {
-                        spinnerVisualizacion.adapter = adapterCircular
-                        consulta[0]="F"
-                        consulta[1]="2"
-                        listaVisualizacion = resources.getStringArray(R.array.dispersion_orbita).toMutableList()
+                        setArraySpinner(R.array.circular,"F","2")
                     }
                     "Histograma (no órbita)" -> {
-                        spinnerVisualizacion.adapter = adapterHistogramaNoorbita
-                        consulta[0]="F"
-                        consulta[1]="3"
-                        listaVisualizacion = resources.getStringArray(R.array.histograma_noorbita).toMutableList()
+                        setArraySpinner(R.array.histograma_noorbita,"F","3")
                     }
                     "Histograma (órbita)" -> {
-                        spinnerVisualizacion.adapter = adapterHistogramaorbita
-                        consulta[0]="T"
-                        consulta[1]="3"
-                        listaVisualizacion = resources.getStringArray(R.array.histograma_orbita).toMutableList()
+                        setArraySpinner(R.array.histograma_orbita,"T","3")
                     }
                 }
             }
@@ -269,6 +177,23 @@ class VisualizacionFragment : Fragment() {
         }
 
         return binding.root
+    }
+    private fun crearArray(textArrayResId: Int): ArrayAdapter<CharSequence> {
+        val adapter = ArrayAdapter.createFromResource(
+            requireContext(),
+            textArrayResId,
+            R.layout.spinner_visual
+        ).also { adapter ->
+            adapter.setDropDownViewResource(R.layout.spiner_item_visualizacion)
+        }
+        return adapter
+    }
+
+    private fun setArraySpinner(textArrayResId: Int,posicion0:String,posicion1:String){
+        binding.visualizacionSpinner.adapter = crearArray(textArrayResId)
+        consulta[0]=posicion0
+        consulta[1]=posicion1
+        listaVisualizacion = resources.getStringArray(textArrayResId).toMutableList()
     }
 
     inner class GestureListener : GestureDetector.SimpleOnGestureListener() {
@@ -347,7 +272,7 @@ class VisualizacionFragment : Fragment() {
         imageView.imageMatrix = matrix
     }
 
-    fun getImage(url: String, binding: FragmentVisualizacionBinding, imageViewWidth: Int, imageViewHeight: Int) {
+    private fun getImage(url: String, binding: FragmentVisualizacionBinding, imageViewWidth: Int, imageViewHeight: Int) {
 
         imageView.scaleType = ImageView.ScaleType.FIT_CENTER
 
@@ -386,7 +311,7 @@ class VisualizacionFragment : Fragment() {
                 target: Target<Drawable>?,
                 isFirstResource: Boolean
             ): Boolean {
-                TODO("Not yet implemented")
+                return false
             }
         }).into(
             binding.visualizacionImageView)

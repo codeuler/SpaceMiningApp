@@ -30,6 +30,10 @@
     <string name="predecir_text">¡Predecir!</string>
     <string name="period_prediction_text">Period Prediction</string>
     <string name="valor_prediccion_text">valor</string>
+    <string name="advertencia_text">¡Por favor llena todos los campos!</string>
+    <string name="advertencia_apogee">¡Apogee debe ser mayor que Perigee!</string>
+    <string name="nada"> - </string>
+    <string name="km"> Km</string>
     <string-array name="tipos_graficos">
         <item><b>Dispersión (órbita)</b></item>
         <item><b>Dispersión (no órbita)</b></item>

@@ -304,19 +304,19 @@
             android:text="@string/haz_prediccion_text"
             android:textColor="@color/white"
             android:textSize="27sp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextNumberDecimal"
+            app:layout_constraintBottom_toTopOf="@+id/editTextApogee"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/table_prediccion" />
 
         <EditText
-            android:id="@+id/editTextNumberDecimal"
+            android:id="@+id/editTextApogee"
             style="@style/EntryTextMineria"
             android:layout_width="@dimen/width_entryText_mineria"
             android:layout_height="@dimen/height_entryText_biblioteca"
             android:hint="@string/n_km"
-            app:layout_constraintBottom_toTopOf="@+id/editTextNumberDecimal2"
+            app:layout_constraintBottom_toTopOf="@+id/editTextPerigee"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/textApogee"
@@ -326,8 +326,8 @@
             android:id="@+id/textPerigee"
             style="@style/TextViewSubsMineria"
             android:text="@string/perigee_text"
-            app:layout_constraintBaseline_toBaselineOf="@+id/editTextNumberDecimal2"
-            app:layout_constraintEnd_toStartOf="@+id/editTextNumberDecimal2"
+            app:layout_constraintBaseline_toBaselineOf="@+id/editTextPerigee"
+            app:layout_constraintEnd_toStartOf="@+id/editTextPerigee"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -335,13 +335,13 @@
             android:id="@+id/textApogee"
             style="@style/TextViewSubsMineria"
             android:text="@string/apogee_text"
-            app:layout_constraintBaseline_toBaselineOf="@+id/editTextNumberDecimal"
-            app:layout_constraintEnd_toStartOf="@+id/editTextNumberDecimal"
+            app:layout_constraintBaseline_toBaselineOf="@+id/editTextApogee"
+            app:layout_constraintEnd_toStartOf="@+id/editTextApogee"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/editTextNumberDecimal2"
+            android:id="@+id/editTextPerigee"
             style="@style/EntryTextMineria"
             android:layout_width="@dimen/width_entryText_mineria"
             android:layout_height="@dimen/height_entryText_biblioteca"
@@ -350,10 +350,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/textPerigee"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextApogee" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/button_predecir"
             style="@style/Widget.AppTheme.Botton1"
             android:layout_width="330dp"
             android:layout_height="52dp"
@@ -371,11 +371,11 @@
             android:id="@+id/tableLayout8"
             android:layout_width="190dp"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintBottom_toTopOf="@+id/button_predecir"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal2">
+            app:layout_constraintTop_toBottomOf="@+id/editTextPerigee">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -398,7 +398,7 @@
                 android:background="@drawable/borde_tablecontenido_mineria">
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/valor_prediccion"
                     style="@style/EstiloTextViewContenidoTabla"
                     android:layout_width="220dp"
                     android:layout_height="match_parent"
