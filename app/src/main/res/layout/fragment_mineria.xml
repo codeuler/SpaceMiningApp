@@ -7,6 +7,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/lineaGuia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.26" />
         <View
             android:id="@+id/lineaSuperior"
             android:layout_width="0dp"
@@ -23,10 +29,13 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="5dp"
+            android:background="@drawable/borde_tablacontenido_rowsrandom"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lineaSuperior">
+            app:layout_constraintTop_toBottomOf="@+id/lineaSuperior"
+            app:layout_constraintBottom_toTopOf="@+id/lineaGuia">
 
             <TableRow
                 android:id="@+id/row_encabezado"
@@ -55,7 +64,6 @@
                     android:layout_weight="1"
                     android:text="@string/perigee_text" />
 
-
                 <TextView
                     android:id="@+id/column_period"
                     style="@style/EstiloTextViewEncabezadoTabla"
@@ -63,235 +71,13 @@
                     android:layout_weight="1"
                     android:text="@string/period_text" />
 
-
             </TableRow>
 
-            <TableRow
-                android:id="@+id/row_content_1"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvRows"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/object_id_1"
-                    style="@style/EstiloTextViewContenidoTabla"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/id_text"
-                    android:textAlignment="viewStart" />
-
-                <TextView
-                    android:id="@+id/apogee_1"
-                    style="@style/EstiloTextViewContenidoTabla"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/valor_text"
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/perigee_1"
-                    style="@style/EstiloTextViewContenidoTabla"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/valor_text" />
-
-
-                <TextView
-                    android:id="@+id/prediction_1"
-                    style="@style/EstiloTextViewContenidoTabla"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/valor_text" />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/row_content_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
-                <TextView
-                    android:id="@+id/object_id_2"
-                    style="@style/EstiloTextViewContenidoTabla"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/id_text"
-                    android:textAlignment="viewStart" />
-
-                <TextView
-                    android:id="@+id/apogee_2"
-                    style="@style/EstiloTextViewContenidoTabla"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/valor_text" />
-
-                <TextView
-                    android:id="@+id/perigee_2"
-                    style="@style/EstiloTextViewContenidoTabla"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/valor_text" />
-
-
-                <TextView
-                    android:id="@+id/prediction_2"
-                    style="@style/EstiloTextViewContenidoTabla"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/valor_text" />
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/row_content_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
-                <TextView
-                    android:id="@+id/object_id_3"
-                    style="@style/EstiloTextViewContenidoTabla"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/id_text"
-                    android:textAlignment="viewStart" />
-
-                <TextView
-                    android:id="@+id/apogee_3"
-                    style="@style/EstiloTextViewContenidoTabla"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/valor_text" />
-
-                <TextView
-                    android:id="@+id/perigee_3"
-                    style="@style/EstiloTextViewContenidoTabla"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/valor_text" />
-
-
-                <TextView
-                    android:id="@+id/prediction_3"
-                    style="@style/EstiloTextViewContenidoTabla"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/valor_text" />
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/row_content_4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
-                <TextView
-                    android:id="@+id/object_id_4"
-                    style="@style/EstiloTextViewContenidoTabla"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/id_text"
-                    android:textAlignment="viewStart" />
-
-                <TextView
-                    android:id="@+id/apogee_4"
-                    style="@style/EstiloTextViewContenidoTabla"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/valor_text" />
-
-                <TextView
-                    android:id="@+id/perigee_4"
-                    style="@style/EstiloTextViewContenidoTabla"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/valor_text" />
-
-
-                <TextView
-                    android:id="@+id/prediction_4"
-                    style="@style/EstiloTextViewContenidoTabla"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/valor_text" />
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/row_content_5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
-                <TextView
-                    android:id="@+id/object_id_5"
-                    style="@style/EstiloTextViewContenidoTabla"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/id_text"
-                    android:textAlignment="viewStart" />
-
-                <TextView
-                    android:id="@+id/apogee_5"
-                    style="@style/EstiloTextViewContenidoTabla"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/valor_text" />
-
-                <TextView
-                    android:id="@+id/perigee_5"
-                    style="@style/EstiloTextViewContenidoTabla"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/valor_text" />
-
-
-                <TextView
-                    android:id="@+id/prediction_5"
-                    style="@style/EstiloTextViewContenidoTabla"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/valor_text" />
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/row_content_6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/borde_tablecontenido_mineria">
-
-
-                <TextView
-                    android:id="@+id/object_id_6"
-                    style="@style/EstiloTextViewContenidoTabla"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/transparente"
-                    android:text="@string/id_text"
-                    android:textAlignment="viewStart" />
-
-                <TextView
-                    android:id="@+id/apogee_6"
-                    style="@style/EstiloTextViewContenidoTabla"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/valor_text" />
-
-                <TextView
-                    android:id="@+id/perigee_6"
-                    style="@style/EstiloTextViewContenidoTabla"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/valor_text" />
-
-
-                <TextView
-                    android:id="@+id/prediction_6"
-                    style="@style/EstiloTextViewContenidoTabla"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/transparente"
-                    android:text="@string/valor_text" />
-            </TableRow>
-
+                tools:itemCount="6"
+                android:layout_height="wrap_content" />
 
         </TableLayout>
 
@@ -306,9 +92,8 @@
             android:textSize="27sp"
             app:layout_constraintBottom_toTopOf="@+id/editTextApogee"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/table_prediccion" />
+            app:layout_constraintTop_toBottomOf="@+id/lineaGuia" />
 
         <EditText
             android:id="@+id/editTextApogee"
@@ -403,18 +188,10 @@
                     android:layout_width="220dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@color/transparente"
+                    android:background="@drawable/borde_tablecontenido_mineria"
                     android:text="@string/valor_prediccion_text" />
             </TableRow>
         </TableLayout>
-
-        <TextView
-            android:id="@+id/textViewPrueba"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            tools:layout_editor_absoluteX="13dp"
-            tools:layout_editor_absoluteY="1dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

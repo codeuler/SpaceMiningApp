@@ -1,11 +1,13 @@
 package com.example.spacemining
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
@@ -25,7 +27,7 @@ class BibliotecaFragment : Fragment() {
 
     private lateinit var binding: FragmentBibliotecaBinding
     private val recyclerView: RecyclerView by lazy { binding.recyclerView }
-    private val conceptoAdapter by lazy { conceptoAdapter(layoutInflater) }
+    private val conceptoAdapter by lazy { ConceptoAdapter(layoutInflater) }
     private val conceptosList = mutableListOf<ConceptoUiModel>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,12 +60,17 @@ class BibliotecaFragment : Fragment() {
             }
             // Actualiza el RecyclerView con la lista filtrada
             updateRecyclerView(filteredList)
+            hideKeyBoard(it)
         }
 
         return binding.root
     }
+    private fun hideKeyBoard(view: View) {
+        val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view.windowToken,0)
+    }
 
-    private suspend fun getDataFromApi(conceptoAdapter:conceptoAdapter) {
+    private suspend fun getDataFromApi(conceptoAdapter:ConceptoAdapter) {
         try {
             // Crea una instancia de Retrofit
             val retrofit = Retrofit.Builder()
