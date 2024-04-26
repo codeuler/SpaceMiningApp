@@ -13,10 +13,10 @@
     <style name="Widget.AppTheme.Botton1" parent="android:Widget.Button">
         <item name="android:background">@drawable/borde_boton_empezar</item>
         <item name="android:fontFamily">@font/koulen</item>
-        <item name="android:paddingBottom">@dimen/padding_top_bottom_btn_empezar</item>
-        <item name="android:paddingTop">@dimen/padding_top_bottom_btn_empezar</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/size_text_botton_empezar</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+
     </style>
     <style name="Widget.AppTheme.Botton2" parent="android:Widget.Button">
         <item name="android:fontFamily">@font/koulen</item>
@@ -27,24 +27,22 @@
         <item name="android:foreground">@drawable/borde_btn_menu</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:paddingTop">@dimen/paddingTop_btn_menu</item>
+        
 
     </style>
 
     <style name="EstiloTextViewEncabezadoTabla" parent="Widget.AppCompat.TextView">
-        <item name="color">@color/lavanda</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:textSize">@dimen/size_text_encabezadoTabla</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:layout_margin">@dimen/padding_2dp</item>
         <item name="android:fontFamily">@font/oswald_semibold</item>
         <item name="android:background">@color/transparente</item>
         <item name="android:gravity">center</item>
     </style>
 
     <style name="EstiloTextViewContenidoTabla" parent="Widget.AppCompat.TextView">
-        <item name="color">@color/lavanda_claro</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:gravity">center_horizontal</item>
+        <item name="android:gravity">center</item>
         <item name="android:paddingStart">@dimen/paddingStartEnd_text_contenidotabla</item>
         <item name="android:paddingEnd">@dimen/paddingStartEnd_text_contenidotabla</item>
         <item name="android:textSize">@dimen/size_text_contenidoTabla</item>

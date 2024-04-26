@@ -12,7 +12,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.26" />
+            app:layout_constraintGuide_percent="0.34" />
         <View
             android:id="@+id/lineaSuperior"
             android:layout_width="0dp"
@@ -47,12 +47,14 @@
                     android:id="@+id/column_object_id"
                     style="@style/EstiloTextViewEncabezadoTabla"
                     android:layout_height="match_parent"
+                    android:layout_width="0dp"
                     android:layout_weight="1"
                     android:text="@string/object_id" />
 
                 <TextView
                     android:id="@+id/column_apogee"
                     style="@style/EstiloTextViewEncabezadoTabla"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/apogee_text" />
@@ -60,6 +62,7 @@
                 <TextView
                     android:id="@+id/column_perigee"
                     style="@style/EstiloTextViewEncabezadoTabla"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/perigee_text" />
@@ -67,15 +70,16 @@
                 <TextView
                     android:id="@+id/column_period"
                     style="@style/EstiloTextViewEncabezadoTabla"
+                    android:layout_width="0dp"
+
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/period_text" />
 
             </TableRow>
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvRows"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 tools:itemCount="6"
                 android:layout_height="wrap_content" />
 
@@ -141,11 +145,12 @@
             android:id="@+id/button_predecir"
             style="@style/Widget.AppTheme.Botton1"
             android:layout_width="330dp"
-            android:layout_height="52dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:paddingTop="0dp"
             android:paddingBottom="0dp"
             android:text="@string/predecir_text"
+            android:textAlignment="center"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -192,6 +197,17 @@
                     android:text="@string/valor_prediccion_text" />
             </TableRow>
         </TableLayout>
+
+        <ImageView
+            android:id="@+id/imagerror"
+            android:layout_width="146dp"
+            android:layout_height="121dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/lineaGuia"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/nowifi" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

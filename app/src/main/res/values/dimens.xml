@@ -13,11 +13,11 @@
     <dimen name="margin_short">5dp</dimen>
     <dimen name="size_text_20">20sp</dimen>
     <dimen name="size_text_encabezadoTabla">17sp</dimen>
-    <dimen name="size_text_contenidoTabla">16sp</dimen>
+    <dimen name="size_text_contenidoTabla">15sp</dimen>
     <dimen name="size_text_titulo">30sp</dimen>
     <dimen name="size_text_prediccion">35sp</dimen>
     <dimen name="width_texto_visualizacion">150dp</dimen>
-    <dimen name="size_texto_visualizacion">25sp</dimen>
+    <dimen name="size_texto_visualizacion">20sp</dimen>
     <dimen name="height_spinner">50dp</dimen>
     <dimen name="margin_table">5dp</dimen>
     <dimen name="padding_2dp">2dp</dimen>
