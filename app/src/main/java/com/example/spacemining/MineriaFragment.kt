@@ -125,25 +125,38 @@ class MineriaFragment : Fragment() {
     private fun getRows() {
         try {
             CoroutineScope(Dispatchers.IO).launch {
-                val call = getRetrofit().create(RowsApi::class.java)
-                    .getRowsRandom("data/files/rows/6/data-in-orbit.csv")
-                val listaJson = call.body()
-                Log.d("TAG_DE_IMPRESION", listaJson.toString());
-                activity?.runOnUiThread {
-                    if (call.isSuccessful) {
-                        val rows = listaJson ?: emptyList()
-                        datosRowModel.clear()
-                        datosRowModel.addAll(rows)
-                        adapter.notifyDataSetChanged()
-                        binding.imagerror.visibility = View.GONE
-                        binding.tablePrediccion.visibility = View.VISIBLE
-                    } else {
-                        showError()
+                try {
+                    val call = getRetrofit().create(RowsApi::class.java)
+                        .getRowsRandom("data/files/rows/6/data-in-orbit.csv")
+                    val listaJson = call.body()
+                    Log.d("TAG_DE_IMPRESION", listaJson.toString());
+                    activity?.runOnUiThread {
+                        if (call.isSuccessful) {
+                            val rows = listaJson ?: emptyList()
+                            datosRowModel.clear()
+                            datosRowModel.addAll(rows)
+                            adapter.notifyDataSetChanged()
+                            binding.imagerror.visibility = View.GONE
+                            binding.tablePrediccion.visibility = View.VISIBLE
+                        } else {
+                            Log.e("Try-Try-error","GettinImg")
+                            showError()
+                        }
+                    }
+                } catch (e: Exception) {
+                    Log.e("TryCatch-2","GettinImg")
+                    activity?.runOnUiThread {
+                        binding.imagerror.setImageResource(R.mipmap.nowifi)
+                        Toast.makeText(requireContext(), "Error de conexion", Toast.LENGTH_LONG).show()
+                        // si esta cargando el recurso y el internet se va, se ejecuta este catch. no el de afuera
                     }
                 }
             }
         } catch (e: Exception) {
-            Toast.makeText(requireContext(),"Error de conexion",Toast.LENGTH_LONG).show()
+            Log.e("TryCatch","GettinImg")
+            activity?.runOnUiThread {
+                Toast.makeText(requireContext(), "Error de conexion", Toast.LENGTH_LONG).show()
+            }
         }
 
     }

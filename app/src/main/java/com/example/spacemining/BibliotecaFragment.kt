@@ -1,6 +1,9 @@
 package com.example.spacemining
 
 import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -17,10 +20,12 @@ import com.example.spacemining.model.ConceptoUiModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import okhttp3.OkHttpClient
 //para la api
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import java.util.concurrent.TimeUnit
 
 
 class BibliotecaFragment : Fragment() {
@@ -42,7 +47,13 @@ class BibliotecaFragment : Fragment() {
         recyclerView.adapter = conceptoAdapter
         // Inicializa la llamada a la API de manera asíncrona usando Coroutines
         lifecycleScope.launch {
-            getDataFromApi(conceptoAdapter)
+            if (isNetworkAvailable(requireContext())) {
+                getDataFromApi(conceptoAdapter)
+            } else {
+                Glide.with(requireContext()).load(R.mipmap.nowifi).into(
+                    binding.imageCargaConceptos
+                )
+            }
         }
         // Función para actualizar el RecyclerView con la lista filtrada
         fun updateRecyclerView(filteredList: List<ConceptoUiModel>) {
@@ -65,6 +76,23 @@ class BibliotecaFragment : Fragment() {
 
         return binding.root
     }
+
+    private fun isNetworkAvailable(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val networkCapbilities = connectivityManager.activeNetwork ?: return false
+            val networkInfo =
+                connectivityManager.getNetworkCapabilities(networkCapbilities) ?: return false
+            return networkInfo.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) || networkInfo.hasTransport(
+                NetworkCapabilities.TRANSPORT_CELLULAR
+            )
+        } else {
+            val networkInfo = connectivityManager.activeNetworkInfo
+            return networkInfo != null && networkInfo.isConnected
+        }
+    }
+
     private fun hideKeyBoard(view: View) {
         val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view.windowToken,0)
@@ -72,9 +100,14 @@ class BibliotecaFragment : Fragment() {
 
     private suspend fun getDataFromApi(conceptoAdapter:ConceptoAdapter) {
         try {
+            val client = OkHttpClient.Builder()
+                .connectTimeout(70, TimeUnit.SECONDS)
+                .readTimeout(70, TimeUnit.SECONDS)
+                .build()
             // Crea una instancia de Retrofit
             val retrofit = Retrofit.Builder()
                 .baseUrl("https://space-mining-api.onrender.com")
+                .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
@@ -101,7 +134,7 @@ class BibliotecaFragment : Fragment() {
                     }
                     conceptoAdapter.setData(conceptosList)
                 } else {
-                    Log.i("message", "Error: ${response.code()}")
+                    Log.e("message", "Error: ${response.code()}")
                     conceptosList.add(ConceptoUiModel("Conceptos", "No encontramos conceptos disponibles intentalo mas tarde porfavor ;D"))
                     conceptoAdapter.setData(conceptosList)
                 }

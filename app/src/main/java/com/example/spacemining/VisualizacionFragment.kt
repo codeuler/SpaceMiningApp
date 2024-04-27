@@ -1,7 +1,11 @@
 package com.example.spacemining
 
+import android.content.Context
 import android.graphics.Matrix
 import android.graphics.drawable.Drawable
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.GestureDetector
@@ -84,7 +88,13 @@ class VisualizacionFragment : Fragment() {
         val itemsTipoGrafico = resources.getStringArray(R.array.tipos_graficos)
         val url = "https://space-mining-api.onrender.com/data/images/get?orbita=T&grafico=0&ejes=A"
 
-        getImage(url,binding,imageView.width,imageView.height)
+        if (isNetworkAvailable(requireContext())) {
+            getImage(url,binding,imageView.width,imageView.height)
+        } else {
+            Glide.with(requireContext()).load(R.mipmap.nowifi).into(
+                binding.visualizacionImageView
+            )
+        }
 
         binding.tituloText.text = "Grafico Dispersión (órbita) de Apogee - Period"
 
@@ -173,10 +183,31 @@ class VisualizacionFragment : Fragment() {
             val titulo = "Grafico ${binding.tipoGraficoSpinner.selectedItem} de ${binding.visualizacionSpinner.selectedItem}"
             binding.tituloText.text = titulo
             val direccion = "https://space-mining-api.onrender.com/data/images/get?orbita=${consulta[0]}&grafico=${consulta[1]}&ejes=${consulta[2]}"
-            getImage(direccion,binding,imageView.width,imageView.height)
+            if (isNetworkAvailable(requireContext())) {
+                getImage(direccion,binding,imageView.width,imageView.height)
+            } else {
+                Glide.with(requireContext()).load(R.mipmap.nowifi).into(
+                    binding.visualizacionImageView
+                )
+            }
         }
 
         return binding.root
+    }
+    private fun isNetworkAvailable(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val networkCapbilities = connectivityManager.activeNetwork ?: return false
+            val networkInfo =
+                connectivityManager.getNetworkCapabilities(networkCapbilities) ?: return false
+            return networkInfo.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) || networkInfo.hasTransport(
+                NetworkCapabilities.TRANSPORT_CELLULAR
+            )
+        } else {
+            val networkInfo = connectivityManager.activeNetworkInfo
+            return networkInfo != null && networkInfo.isConnected
+        }
     }
     private fun crearArray(textArrayResId: Int): ArrayAdapter<CharSequence> {
         val adapter = ArrayAdapter.createFromResource(
@@ -276,10 +307,14 @@ class VisualizacionFragment : Fragment() {
 
         imageView.scaleType = ImageView.ScaleType.FIT_CENTER
 
-        Glide.with(this.requireContext()).load(url).timeout(70000).thumbnail(Glide.with(
-            this.requireContext()).load(R.drawable.imageloading)).error(R.mipmap.error
-        ).diskCacheStrategy(DiskCacheStrategy.NONE).skipMemoryCache(true).listener(object :
-            RequestListener<Drawable> {
+        Glide.with(this.requireContext())
+            .load(url)
+            .timeout(10000)
+            .thumbnail(Glide.with(this.requireContext()).load(R.drawable.imageloading))
+            .error(R.mipmap.error) // creo no se ejecuta adecuadamente, es decir, nunca se ejecuta | manejo el error en la funcion onLoadFailed
+            .diskCacheStrategy(DiskCacheStrategy.NONE)
+            .skipMemoryCache(true)
+            .listener(object : RequestListener<Drawable> {
 
             override fun onResourceReady(
                 resource: Drawable?,
@@ -311,7 +346,9 @@ class VisualizacionFragment : Fragment() {
                 target: Target<Drawable>?,
                 isFirstResource: Boolean
             ): Boolean {
-                return false
+                Log.e("onLoadFailed","loading img failed")
+                imageView.setImageResource(R.mipmap.error)
+                return true
             }
         }).into(
             binding.visualizacionImageView)
