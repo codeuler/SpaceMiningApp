@@ -94,7 +94,7 @@ class MineriaFragment : Fragment() {
         }
         val apogee: Double = (binding.editTextApogee.text).toString().toDouble()
         val perigee: Double = (binding.editTextPerigee.text).toString().toDouble()
-        if (apogee <= perigee) {
+        if (apogee < perigee) {
             Toast.makeText(context, R.string.advertencia_apogee, Toast.LENGTH_SHORT).show()
             binding.valorPrediccion.text = getString(R.string.nada)
         } else {
