@@ -11,7 +11,7 @@
     <string name="titulo_texto">Titulo</string>
     <string name="tipo_grafico_text">Tipo de grafico</string>
     <string name="visualizacion_text">Visualización</string>
-    <string name="precedir_caidas_text"><u>¿Deseas predecir caídas?</u></string>
+    <string name="precedir_caidas_text"><u>¿Deseas predecir períodos?</u></string>
     <string name="graficar_text">¡A graficar!</string>
     <string name="apogee_text">Apogee</string>
     <string name="perigee_text">Perigee</string>
