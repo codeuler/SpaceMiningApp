@@ -24,16 +24,20 @@ import okhttp3.OkHttpClient
 //para la api
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
 import java.util.concurrent.TimeUnit
+import com.example.spacemining.interfaces.ApiService
 
-
+/**
+ * Fragmento que muestra una biblioteca de conceptos obtenidos desde la API SpaceMining.
+ * Proporciona funcionalidad para buscar conceptos y mostrarlos en un RecyclerView.
+ */
 class BibliotecaFragment : Fragment() {
 
     private lateinit var binding: FragmentBibliotecaBinding
     private val recyclerView: RecyclerView by lazy { binding.recyclerView }
     private val conceptoAdapter by lazy { ConceptoAdapter(layoutInflater) }
     private val conceptosList = mutableListOf<ConceptoUiModel>()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,25 +45,29 @@ class BibliotecaFragment : Fragment() {
         binding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_biblioteca, container, false)
 
+        // Carga de imagen de carga utilizando Glide
         Glide.with(this.requireContext()).load(R.drawable.imageloading).into(
             binding.imageCargaConceptos)
 
         recyclerView.adapter = conceptoAdapter
+
         // Inicializa la llamada a la API de manera asíncrona usando Coroutines
         lifecycleScope.launch {
             if (isNetworkAvailable(requireContext())) {
                 getDataFromApi(conceptoAdapter)
             } else {
+                // Carga de imagen de falta de conexión
                 Glide.with(requireContext()).load(R.mipmap.nowifi).into(
                     binding.imageCargaConceptos
                 )
             }
         }
+
         // Función para actualizar el RecyclerView con la lista filtrada
         fun updateRecyclerView(filteredList: List<ConceptoUiModel>) {
-            // Actualiza el adaptador del RecyclerView con la lista filtrada
             conceptoAdapter.setData(filteredList)
         }
+
         // Escucha cambios en el texto del EditText para realizar la búsqueda
         binding.imageView2.setOnClickListener {
             val searchText = binding.editTextText.text.toString().trim().lowercase()
@@ -69,6 +77,7 @@ class BibliotecaFragment : Fragment() {
                 concepto.titulo.lowercase().contains(searchText) ||
                         concepto.descripcion.lowercase().contains(searchText)
             }
+
             // Actualiza el RecyclerView con la lista filtrada
             updateRecyclerView(filteredList)
             hideKeyBoard(it)
@@ -77,13 +86,14 @@ class BibliotecaFragment : Fragment() {
         return binding.root
     }
 
+    // Función para verificar si hay conexión a Internet
     private fun isNetworkAvailable(context: Context): Boolean {
         val connectivityManager =
             context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            val networkCapbilities = connectivityManager.activeNetwork ?: return false
+            val networkCapabilities = connectivityManager.activeNetwork ?: return false
             val networkInfo =
-                connectivityManager.getNetworkCapabilities(networkCapbilities) ?: return false
+                connectivityManager.getNetworkCapabilities(networkCapabilities) ?: return false
             return networkInfo.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) || networkInfo.hasTransport(
                 NetworkCapabilities.TRANSPORT_CELLULAR
             )
@@ -93,12 +103,14 @@ class BibliotecaFragment : Fragment() {
         }
     }
 
+    // Función para ocultar el teclado virtual
     private fun hideKeyBoard(view: View) {
         val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view.windowToken,0)
     }
 
-    private suspend fun getDataFromApi(conceptoAdapter:ConceptoAdapter) {
+    // Función para obtener datos de la API de SpaceTrack
+    private suspend fun getDataFromApi(conceptoAdapter: ConceptoAdapter) {
         try {
             val client = OkHttpClient.Builder()
                 .connectTimeout(70, TimeUnit.SECONDS)
@@ -121,7 +133,7 @@ class BibliotecaFragment : Fragment() {
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
                     val spaceTrackResponse = response.body()
-                    spaceTrackResponse?.data?.let { data->
+                    spaceTrackResponse?.data?.let { data ->
                         val descriptionBuilder = StringBuilder()
                         data.forEach { (concept, descriptions) ->
                             descriptions.forEach { description ->
@@ -134,27 +146,19 @@ class BibliotecaFragment : Fragment() {
                     }
                     conceptoAdapter.setData(conceptosList)
                 } else {
+                    // Manejo de errores
                     Log.e("message", "Error: ${response.code()}")
                     conceptosList.add(ConceptoUiModel("Conceptos", "No encontramos conceptos disponibles intentalo mas tarde porfavor ;D"))
                     conceptoAdapter.setData(conceptosList)
                 }
             }
         } catch (e: Exception) {
+            // Manejo de errores
             Log.e("Error", "Error fetching data: ${e.message}")
             conceptosList.add(ConceptoUiModel("Fallo de conexion", "Tuvimos problemas para conectarnos con el servidor, asegurate de estar conectado a internet. ;D"))
             conceptoAdapter.setData(conceptosList)
         }
-        binding.imageCargaConceptos.visibility=View.GONE
+        // Oculta la imagen de carga después de obtener los datos
+        binding.imageCargaConceptos.visibility = View.GONE
     }
 }
-
-// Define la interfaz para la llamada a la API
-interface ApiService {
-    @GET("/data/conceptos/space_track")
-    suspend fun getSpaceTrackData(): retrofit2.Response<SpaceTrackResponse>
-}
-class SpaceTrackResponse(
-    val data: Map<String, List<String>>, // La respuesta contiene un mapa de conceptos a listas de descripciones
-    val time: String,
-    val type: String
-)

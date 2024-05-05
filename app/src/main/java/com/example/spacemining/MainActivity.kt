@@ -8,24 +8,25 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.spacemining.databinding.ActivityMainBinding
 
+/**
+ * Actividad principal que gestiona la navegación entre fragmentos.
+ */
 class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val bindingActivity: ActivityMainBinding =
-            DataBindingUtil.setContentView<ActivityMainBinding>(
-                this, R.layout.activity_main
-            )
+        val bindingActivity: ActivityMainBinding = DataBindingUtil.setContentView(
+            this, R.layout.activity_main
+        )
 
-        //Obtengo el Contenedor de fragmentos
+        // Obtiene el Contenedor de fragmentos
         val navHostController =
             supportFragmentManager.findFragmentById(R.id.myNavHostFragment) as NavHostFragment
-        //Obtengo el navcontroller del contenedor de fragmentos
+        // Obtiene el NavController del contenedor de fragmentos
         navController = navHostController.navController
-        //Cada vez que se haga una transición de fragmentos se analiza si dicho fragmento es el entry
-        //De ser así se desapareche la tool var, de no ser así se pone visible
+        // Configura la visibilidad de la toolbar en función del fragmento actual
         navController.addOnDestinationChangedListener { _, destination, _ ->
-
             if (destination.id == R.id.entryFragment) {
                 bindingActivity.toolbar.visibility = View.GONE
             } else {
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
+        // Configura el clic del botón "backButton" para navegar hacia atrás
         bindingActivity.backButton.setOnClickListener {
             navController.navigateUp()
         }

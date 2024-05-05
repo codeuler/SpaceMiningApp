@@ -6,13 +6,12 @@ import android.net.NetworkCapabilities
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import androidx.core.content.ContextCompat.getSystemService
+import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -25,14 +24,19 @@ import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.net.UnknownHostException
 import java.util.concurrent.TimeUnit
 
+/**
+ * Fragmento que muestra la actividad de minería espacial y predicciones.
+ */
 class MineriaFragment : Fragment() {
 
+    // Coeficientes para el cálculo de la predicción
     private val coeficienteApogee = 0.01009589
     private val coeficientePerigee = 0.01030137
     private val interceptoY = 84.41740941
+
+    // Variables de vista y adaptador
     private lateinit var binding: FragmentMineriaBinding
     private lateinit var adapter: RowAdapter
     private val datosRowModel = mutableListOf<RowResponse>()
@@ -41,12 +45,15 @@ class MineriaFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
+        // Infla el diseño para este fragmento utilizando DataBinding
         binding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_mineria, container, false
         )
 
+        // Configura el clic del botón de predicción
         binding.buttonPredecir.setOnClickListener { calcularPrediccion(it) }
+
+        // Carga la imagen de carga y verifica la disponibilidad de red
         binding.imagerror.visibility = View.VISIBLE
         Glide.with(this.requireContext()).load(R.drawable.imageloading).into(
             binding.imagerror
@@ -59,11 +66,13 @@ class MineriaFragment : Fragment() {
             )
         }
 
+        // Inicializa el RecyclerView
         initRecyclerview()
 
         return binding.root
     }
 
+    // Verifica la disponibilidad de red
     private fun isNetworkAvailable(context: Context): Boolean {
         val connectivityManager =
             context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -80,12 +89,14 @@ class MineriaFragment : Fragment() {
         }
     }
 
+    // Inicializa el RecyclerView y su adaptador
     private fun initRecyclerview() {
         adapter = RowAdapter(datosRowModel)
         binding.rvRows.layoutManager = LinearLayoutManager(context)
         binding.rvRows.adapter = adapter
     }
 
+    // Calcula la predicción en base a los valores de apogeo y perigeo ingresados por el usuario
     private fun calcularPrediccion(view: View) {
         if (binding.editTextApogee.text.isEmpty() || binding.editTextPerigee.text.isEmpty()) {
             Toast.makeText(context, R.string.advertencia_text, Toast.LENGTH_SHORT).show()
@@ -105,11 +116,13 @@ class MineriaFragment : Fragment() {
         hideKeyBoard(view)
     }
 
+    // Oculta el teclado virtual después de realizar una acción
     private fun hideKeyBoard(view: View) {
         val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
+    // Configura Retrofit para realizar la llamada a la API
     private fun getRetrofit(): Retrofit {
         val client = OkHttpClient.Builder()
             .connectTimeout(70, TimeUnit.SECONDS)
@@ -122,6 +135,7 @@ class MineriaFragment : Fragment() {
             .build()
     }
 
+    // Obtiene los datos de la API y actualiza el RecyclerView
     private fun getRows() {
         try {
             CoroutineScope(Dispatchers.IO).launch {
@@ -148,7 +162,6 @@ class MineriaFragment : Fragment() {
                     activity?.runOnUiThread {
                         binding.imagerror.setImageResource(R.mipmap.nowifi)
                         Toast.makeText(requireContext(), "Error de conexion", Toast.LENGTH_LONG).show()
-                        // si esta cargando el recurso y el internet se va, se ejecuta este catch. no el de afuera
                     }
                 }
             }
@@ -158,9 +171,9 @@ class MineriaFragment : Fragment() {
                 Toast.makeText(requireContext(), "Error de conexion", Toast.LENGTH_LONG).show()
             }
         }
-
     }
 
+    // Muestra un mensaje de error en caso de problemas al obtener los datos de la API
     private fun showError() {
         Toast.makeText(context, "Error al importar datos del servidor", Toast.LENGTH_SHORT).show()
     }
