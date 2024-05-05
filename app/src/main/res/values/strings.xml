@@ -34,6 +34,7 @@
     <string name="advertencia_apogee">¡Apogee debe ser mayor que Perigee!</string>
     <string name="nada"> - </string>
     <string name="km"> Km</string>
+    <string name="text_dispersion">Grafico Dispersión (órbita) de Apogee - Period</string>
     <string-array name="tipos_graficos">
         <item><b>Dispersión (órbita)</b></item>
         <item><b>Dispersión (no órbita)</b></item>

@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="40dp"
+    android:layout_marginTop="@dimen/marginTop_table_itemConcepto"
     android:background="@drawable/borde_tarjeta_biblioteca"
-    android:paddingTop="10dp"
-    android:paddingBottom="5dp"
+    android:paddingTop="@dimen/paddingTop_table_itemConcepto"
+    android:paddingBottom="@dimen/paddingBottom_tablelayout_itemConcepto"
     android:layout_gravity="center_horizontal">
 
     <TableRow android:layout_width="match_parent"
@@ -15,14 +15,14 @@
         <TextView
             android:id="@+id/dt"
             style="@style/TextViewItemConceptos"
-            android:textSize="20sp"
+            android:textSize="@dimen/size_text_dt"
             tools:text="Concepto" />
     </TableRow>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_margin="5dp"
+        android:layout_height="@dimen/heigth_2dp"
+        android:layout_margin="@dimen/margin_startEnd_table_mineria"
         android:background="@color/black" />
 
     <TableRow android:layout_width="match_parent"

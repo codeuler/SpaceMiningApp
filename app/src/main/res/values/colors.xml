@@ -8,4 +8,5 @@
     <color name="morado">#16062B</color>
     <color name="lavanda">#6F95FF</color>
     <color name="lavanda_claro">#C3D3FF</color>
+    <color name="grisClaro">#90ffffff</color>
 </resources>

@@ -28,7 +28,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/transparente"
             android:minHeight="?attr/actionBarSize"
-            android:paddingEnd="40dp"
+            android:paddingEnd="@dimen/padding_toolbar"
             android:textAlignment="gravity"
             android:theme="?attr/actionBarTheme"
             app:layout_constraintEnd_toEndOf="parent"
@@ -38,13 +38,15 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="2dp"
-                android:paddingBottom="2dp">
+                android:paddingTop="@dimen/padding_2dp"
+                android:paddingBottom="@dimen/padding_2dp"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="6dp">
 
                 <ImageView
                     android:id="@+id/backButton"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="@dimen/width_imageView_entry"
+                    android:layout_height="@dimen/width_imageView_entry"
                     android:src="@drawable/backbar" />
 
             </LinearLayout>

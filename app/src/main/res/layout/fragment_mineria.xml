@@ -13,6 +13,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.34" />
+
         <View
             android:id="@+id/lineaSuperior"
             android:layout_width="0dp"
@@ -26,16 +27,16 @@
             android:id="@+id/table_prediccion"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="5dp"
+            android:layout_marginStart="@dimen/margin_startEnd_table_mineria"
+            android:layout_marginTop="@dimen/margin_top_table_mineria"
+            android:layout_marginEnd="@dimen/margin_startEnd_table_mineria"
             android:background="@drawable/borde_tablacontenido_rowsrandom"
             android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/lineaGuia"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lineaSuperior"
-            app:layout_constraintBottom_toTopOf="@+id/lineaGuia">
+            app:layout_constraintTop_toBottomOf="@+id/lineaSuperior">
 
             <TableRow
                 android:id="@+id/row_encabezado"
@@ -46,8 +47,8 @@
                 <TextView
                     android:id="@+id/column_object_id"
                     style="@style/EstiloTextViewEncabezadoTabla"
-                    android:layout_height="match_parent"
                     android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/object_id" />
 
@@ -77,11 +78,12 @@
                     android:text="@string/period_text" />
 
             </TableRow>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvRows"
                 android:layout_width="0dp"
-                tools:itemCount="6"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                tools:itemCount="6" />
 
         </TableLayout>
 
@@ -93,7 +95,7 @@
             android:gravity="center_vertical"
             android:text="@string/haz_prediccion_text"
             android:textColor="@color/white"
-            android:textSize="27sp"
+            android:textSize="@dimen/size_text_haz_tu_prediccion"
             app:layout_constraintBottom_toTopOf="@+id/editTextApogee"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -144,14 +146,14 @@
         <Button
             android:id="@+id/button_predecir"
             style="@style/Widget.AppTheme.Botton1"
-            android:layout_width="330dp"
+            android:layout_width="@dimen/width_button_mineria"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="@dimen/margin_bottom_button"
             android:paddingTop="0dp"
             android:paddingBottom="0dp"
             android:text="@string/predecir_text"
             android:textAlignment="center"
-            android:textSize="30sp"
+            android:textSize="@dimen/size_text_button_mineria"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.543"
@@ -190,7 +192,7 @@
                 <TextView
                     android:id="@+id/valor_prediccion"
                     style="@style/EstiloTextViewContenidoTabla"
-                    android:layout_width="220dp"
+                    android:layout_width="@dimen/width_textview_valorprediccion"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/borde_tablecontenido_mineria"
@@ -200,8 +202,8 @@
 
         <ImageView
             android:id="@+id/imagerror"
-            android:layout_width="146dp"
-            android:layout_height="121dp"
+            android:layout_width="@dimen/width_imageview_imagerror"
+            android:layout_height="@dimen/height_imageview_imagerror"
             android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/lineaGuia"
             app:layout_constraintEnd_toEndOf="parent"

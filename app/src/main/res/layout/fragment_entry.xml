@@ -12,9 +12,9 @@
         <Button
             android:id="@+id/explorar_botton"
             style="@style/Widget.AppTheme.Botton1"
-            android:layout_width="242dp"
+            android:layout_width="@dimen/width_botton_entry"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="68dp"
+            android:layout_marginBottom="@dimen/margin_bottom_btnEntry"
             android:background="@drawable/borde_boton_empezar"
             android:text="@string/explorar_text"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -25,8 +25,8 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="0dp"
-            android:layout_height="468dp"
-            android:layout_marginTop="40dp"
+            android:layout_height="@dimen/height_imageView_entry"
+            android:layout_marginTop="@dimen/margin_top_image_entry"
             app:layout_constraintBottom_toTopOf="@+id/explorar_botton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

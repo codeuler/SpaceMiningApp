@@ -4,9 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/borde_text_spinner"
-    android:padding="10dp"
+    android:padding="@dimen/padding_sppiner"
     android:textAlignment="inherit"
     android:textColor="@color/black"
-    android:textSize="18sp" />
+    android:textSize="@dimen/size_text_spinner" />
 
 

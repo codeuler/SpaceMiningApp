@@ -11,7 +11,7 @@
         <View
             android:id="@+id/lineaSuperior"
             android:layout_width="0dp"
-            android:layout_height="1dp"
+            android:layout_height="@dimen/height_view_concepto"
             android:background="@color/white"
             app:layout_constraintBottom_toTopOf="@id/scrollView2"
             app:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +30,7 @@
 
         <ImageView
             android:id="@+id/imageCargaConceptos"
-            android:layout_width="150dp"
+            android:layout_width="@dimen/width_imageView_biblioteca"
             android:layout_height="wrap_content"
             android:src="@drawable/imageloading"
             app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
@@ -54,8 +54,8 @@
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="30dp"
-                android:paddingEnd="30dp"
+                android:paddingStart="@dimen/padding_startEnd_recyclerView"
+                android:paddingEnd="@dimen/padding_startEnd_recyclerView"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_concepto" />
 
@@ -82,7 +82,7 @@
                 android:hint="@string/entry_text_bibioteca"
                 android:inputType="text"
                 android:maxLength="20"
-                android:paddingStart="@dimen/padding_entryText_start"
+                android:paddingStart="@dimen/padding_start_entryText"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"

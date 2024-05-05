@@ -5,7 +5,6 @@ import android.graphics.Matrix
 import android.graphics.drawable.Drawable
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.GestureDetector
@@ -41,6 +40,8 @@ class VisualizacionFragment : Fragment() {
     private lateinit var binding: FragmentVisualizacionBinding
     private val consulta = mutableListOf("T","0","A")
     private var listaVisualizacion = mutableListOf("")
+
+    // Método que crea la vista del fragmento
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -80,14 +81,15 @@ class VisualizacionFragment : Fragment() {
             true
         }
 
-
+        //Crear los spinner que se usaran para seleccionar los tipos de visualización
         val spinnerVisualizacion = binding.visualizacionSpinner
         val spinnerTipoGrafico = binding.tipoGraficoSpinner
 
-
+        //Se trae el array que ira dentro del spinner
         val itemsTipoGrafico = resources.getStringArray(R.array.tipos_graficos)
+        //url para hacer la petición de una imagen
         val url = "https://space-mining-api.onrender.com/data/images/get?orbita=T&grafico=0&ejes=A"
-
+        //Revisar la conexión a internet y con base en ello mostrar una imagen
         if (isNetworkAvailable(requireContext())) {
             getImage(url,binding,imageView.width,imageView.height)
         } else {
@@ -95,12 +97,10 @@ class VisualizacionFragment : Fragment() {
                 binding.visualizacionImageView
             )
         }
-
-        binding.tituloText.text = "Grafico Dispersión (órbita) de Apogee - Period"
-
+        //Agregar los textos a los spiners
         spinnerTipoGrafico.adapter = crearArray(R.array.tipos_graficos)
         spinnerVisualizacion.adapter = crearArray(R.array.dispersion_orbita)
-
+        //Lógica cuando se seleciona un item dentro de los spinner, to do con el fin de dejar los parámetros claros a la hora de hacer la petición al servidor
         spinnerTipoGrafico.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {}
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -133,7 +133,7 @@ class VisualizacionFragment : Fragment() {
                 }
             }
         }
-
+        //Lógica cuando se seleciona un item dentro de los spinner, to do con el fin de dejar los parámetros claros a la hora de hacer la petición al servidor
         spinnerVisualizacion.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
             override fun onItemSelected(
@@ -174,11 +174,11 @@ class VisualizacionFragment : Fragment() {
                 }
             }
         }
-
+        //Pasar a otro fragmento
         binding.predecirText.setOnClickListener {
             view?.findNavController()?.navigate(R.id.action_visualizacionFragment_to_mineriaFragment)
         }
-
+        //Con base en las selecciones que se han hecho, se realiza una petició al servidor para traer una imagen en especifico
         binding.graficarButton.setOnClickListener{
             val titulo = "Grafico ${binding.tipoGraficoSpinner.selectedItem} de ${binding.visualizacionSpinner.selectedItem}"
             binding.tituloText.text = titulo
@@ -194,21 +194,18 @@ class VisualizacionFragment : Fragment() {
 
         return binding.root
     }
+    //Función para determinar si existe conexión a internet
     private fun isNetworkAvailable(context: Context): Boolean {
         val connectivityManager =
             context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            val networkCapbilities = connectivityManager.activeNetwork ?: return false
-            val networkInfo =
-                connectivityManager.getNetworkCapabilities(networkCapbilities) ?: return false
-            return networkInfo.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) || networkInfo.hasTransport(
-                NetworkCapabilities.TRANSPORT_CELLULAR
-            )
-        } else {
-            val networkInfo = connectivityManager.activeNetworkInfo
-            return networkInfo != null && networkInfo.isConnected
-        }
+        val networkCapbilities = connectivityManager.activeNetwork ?: return false
+        val networkInfo =
+            connectivityManager.getNetworkCapabilities(networkCapbilities) ?: return false
+        return networkInfo.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) || networkInfo.hasTransport(
+            NetworkCapabilities.TRANSPORT_CELLULAR
+        )
     }
+    //Función para traer el array de la carpeta de string para ponerlo dentro del spinner
     private fun crearArray(textArrayResId: Int): ArrayAdapter<CharSequence> {
         val adapter = ArrayAdapter.createFromResource(
             requireContext(),
@@ -219,7 +216,7 @@ class VisualizacionFragment : Fragment() {
         }
         return adapter
     }
-
+    //Poner un array dentro del spinner
     private fun setArraySpinner(textArrayResId: Int,posicion0:String,posicion1:String){
         binding.visualizacionSpinner.adapter = crearArray(textArrayResId)
         consulta[0]=posicion0
@@ -309,9 +306,9 @@ class VisualizacionFragment : Fragment() {
 
         Glide.with(this.requireContext())
             .load(url)
-            .timeout(10000)
+            .timeout(700000)
             .thumbnail(Glide.with(this.requireContext()).load(R.drawable.imageloading))
-            .error(R.mipmap.error) // creo no se ejecuta adecuadamente, es decir, nunca se ejecuta | manejo el error en la funcion onLoadFailed
+            .error(R.mipmap.error)
             .diskCacheStrategy(DiskCacheStrategy.NONE)
             .skipMemoryCache(true)
             .listener(object : RequestListener<Drawable> {

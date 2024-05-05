@@ -20,7 +20,7 @@
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/height_linearlayout_suffinspace"
             android:orientation="horizontal"
             android:padding="@dimen/padding_linearLayour_text_stuff"
             app:layout_constraintBottom_toBottomOf="parent"
