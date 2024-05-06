@@ -4,6 +4,8 @@ La **Space Mining App** es una aplicación móvil desarrollada en **Android Stud
 Dicha app utiliza datos de objetos en órbita que se procesan en un servidor, el objetivo principal es que por medio de visualizaciones, una persona que no se encuentre involucrada en este mundo pueda entender fácilmente del tema, adicionalmente se realiza la implementación de un modelo de regresión lineal, cuya variable a predecir es el periodo de un satélite, mientras que las variables independientes son apogee y perigee. A demás se cuenta con una pantalla que funciona como un diccionario con conceptos y definiciones relacionados con todo este ámbito.
 A continuación, se detallan los aspectos clave de la aplicación:
 
+![](app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.webp)
+
 ## Descripción
 
 - **Visualización de Datos Espaciales**: Específicamente, se traen las imágenes que se generan en nuestro api (alojado en el proyecto [space-mining-api](https://github.com/MarcosDPG/space-mining-api.git)) y se consumen directamente desde la app de manera tal que el usuario simplemente tenga que elegir qué tipo de gráfico quiere ver a su vez que variables. Todo esto haciendo uso de la librería de **Glide** que nos proporciona el mismo Android studio
